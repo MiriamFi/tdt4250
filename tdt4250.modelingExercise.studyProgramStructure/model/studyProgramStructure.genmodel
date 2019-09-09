@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/tdt4250.modelingExercise.studyProgramStructure/src"
+    modelPluginID="tdt4250.modelingExercise.studyProgramStructure" modelName="StudyProgramStructure"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>studyProgramStructure.ecore</foreignModel>
+  <genPackages prefix="StudyProgramStructure" disposableProviderFactory="true" ecorePackage="studyProgramStructure.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="studyProgramStructure.ecore#//degrees">
+      <genEnumLiterals ecoreEnumLiteral="studyProgramStructure.ecore#//degrees/bachelor"/>
+      <genEnumLiterals ecoreEnumLiteral="studyProgramStructure.ecore#//degrees/master"/>
+      <genEnumLiterals ecoreEnumLiteral="studyProgramStructure.ecore#//degrees/integratedMaster"/>
+    </genEnums>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Course/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Course/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Course/credits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Course/level"/>
+    </genClasses>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/numOfSemesters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/degree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Program/specialisations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Program/semesters"/>
+    </genClasses>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//Specialisation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Specialisation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Specialisation/numOfSemesters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Specialisation/semesters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Specialisation/program"/>
+    </genClasses>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//Semester">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Semester/year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Semester/season"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Semester/courseGroups"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Semester/program"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Semester/specialisation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Semester/neededCredits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Semester/chosenCourses"/>
+    </genClasses>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//CourseGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//CourseGroup/courses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/numOfNeededCourses"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//CourseGroup/semester"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/levelRestriction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/field"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/fromField"/>
+    </genClasses>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//StudyPlan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//StudyPlan/programs"/>
+    </genClasses>
+    <genClasses ecoreClass="studyProgramStructure.ecore#//SemesterCourse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//SemesterCourse/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//SemesterCourse/course"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
