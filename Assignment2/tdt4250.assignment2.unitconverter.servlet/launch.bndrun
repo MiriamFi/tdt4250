@@ -1,0 +1,33 @@
+-runfw: org.eclipse.osgi;version=3.13
+-runee: JavaSE-1.8
+-runprovidedcapabilities: ${native_capability}
+
+-resolve.effective: active
+
+-runproperties: \
+	org.osgi.service.http.port=8080,\
+	osgi.console=,\
+	osgi.console.enable.builtin=false
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=tdt4250.assignment2.unitconverter.servlet)',\
+	bnd.identity;version='latest';id='tdt4250.assignment2.unitconverter.gogo',\
+	bnd.identity;version='latest';id='tdt4250.assignment2.unitconverter.no',\
+	bnd.identity;id='org.apache.felix.configadmin',\
+	bnd.identity;id='org.osgi.service.cm'
+-runbundles: \
+	org.apache.felix.gogo.command,\
+	org.apache.felix.gogo.runtime,\
+	org.apache.felix.gogo.shell,\
+	org.apache.felix.http.jetty,\
+	org.apache.felix.http.servlet-api,\
+	org.apache.felix.scr,\
+	tdt4250.assignment2.unitconverter.api;version=latest,\
+	tdt4250.assignment2.unitconverter.gogo;version=latest,\
+	tdt4250.assignment2.unitconverter.no;version=latest,\
+	tdt4250.assignment2.unitconverter.servlet;version=latest,\
+	tdt4250.assignment2.unitconverter.util;version=latest,\
+	org.apache.felix.configadmin,\
+	org.osgi.service.cm

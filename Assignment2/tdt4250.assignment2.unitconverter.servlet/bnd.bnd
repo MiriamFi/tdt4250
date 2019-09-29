@@ -1,0 +1,16 @@
+-buildpath: \
+	osgi.annotation;version=7.0.0,\
+	osgi.core;version=7.0.0,\
+	osgi.cmpn;version=7.0.0,\
+	org.apache.felix.http.servlet-api;version=1.1.2,\
+	tdt4250.assignment2.unitconverter.api
+
+-testpath: \
+	${junit},\
+	${mockito},\
+	${mockito-deps}
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 0.0.0.${tstamp}
