@@ -1,52 +1,90 @@
 package tdt4250.assignment2.unitconverter.api;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Converter {
-	
-	private static final String DEFAULT_MESSAGE = "Resource not found";
 
-	private Collection<Unit> units = new ArrayList<Unit>();
+	private Map<String, Conversion> conversions = new HashMap<String, Conversion>();
+	private Map<String, Unit> units = new HashMap<String, Unit>();
 	
-	public Converter(Unit... units) {
-		this.units.addAll(Arrays.asList(units));
+	
+	public void addConversion(Conversion conversion) {
+		this.conversions.put(conversion.getConversionName(), conversion);
 	}
 	
+	public void removeConversion(Conversion conversion) {
+		this.conversions.remove(conversion.getConversionName());
+	}
+	
+	
 	public void addUnit(Unit unit) {
-		this.units.add(unit);
+		this.units.put(unit.getName(), unit);
 	}
 	
 	public void removeUnit(Unit unit) {
-		this.units.remove(unit);
+		this.units.remove(unit.getName());
 	}
 	
+	public Unit getUnit(String unitName) {
+		if (this.isUnitNameValid(unitName)) {
+			return units.get(unitName);
+		}
+		return null;
+	}
 	
-	public ConverterResult convertUnit(String unitName, String targetUnitName, String value) {
+	public Conversion getConversion(String conversionName) {
+			return conversions.get(conversionName);
+	}
+	
+	public boolean isUnitNameValid(String unitName) {
+		return units.containsKey(unitName);
+	}
+	public boolean isConversionNameValid(String conversionName) {
+		return conversions.containsKey(conversionName);
+	}
+	
+	public ConverterResult convertUnit(String startUnitName, String endUnitName, String value) {
 		ConverterResult result;
-		float v = Float.parseFloat(value);
+		boolean success = true;
+		Float v = 0.0f;
+		try{
+			v = Float.parseFloat(value);
+		}
+		catch(Exception e) {
+			success = false;
+		}
 		
-		Unit unit = this.unitSearch(unitName);
-		Unit targetUnit = this.unitSearch(targetUnitName);
-		if(unit == null || targetUnit == null) {
-			Boolean success = false;
-			URI link = null;
-			result = new ConverterResult(success, v,  link);
+		Conversion conversion = this.conversionSearch(startUnitName, endUnitName);
+		if(conversion == null) {
+			success = false;
+			result = new ConverterResult(success, v);
 		} else {
-			result= unit.convert(targetUnit, v);
+			result= conversion.convert(startUnitName, endUnitName, v);
 		}
 		return result;
 	}
-	
-	private Unit unitSearch(String name) {
-		for(Unit unit : this.units) {
-			if (name == unit.getName()) {
-				return unit;
-			}
+	/*
+	public ConverterResult convertUnit(Unit startUnit, Unit endUnit, float value) {
+		ConverterResult result;
+		boolean success = true;
+		
+		Conversion conversion = this.conversionSearch(startUnit.getName(), endUnit.getName());
+		if(conversion == null) {
+			success = false;
+			result = new ConverterResult(success, value);
+		} else {
+			result= conversion.convert(startUnit.getName(), endUnit.getName(), value);
 		}
-		return null;
+		return result;
+	}
+	*/
+	private Conversion conversionSearch(String startUnitName, String endUnitName) {
+			String conversionName = startUnitName + endUnitName;
+			return this.conversions.get(conversionName);
 	}
 	
 	

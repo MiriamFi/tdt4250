@@ -26,8 +26,8 @@
 	org.apache.felix.scr,\
 	tdt4250.assignment2.unitconverter.api;version=latest,\
 	tdt4250.assignment2.unitconverter.gogo;version=latest,\
-	tdt4250.assignment2.unitconverter.no;version=latest,\
 	tdt4250.assignment2.unitconverter.servlet;version=latest,\
 	tdt4250.assignment2.unitconverter.util;version=latest,\
 	org.apache.felix.configadmin,\
-	org.osgi.service.cm
+	org.osgi.service.cm,\
+	tdt4250.assignment2.unitconverter.conversions;version=latest

@@ -9,19 +9,17 @@ public class ConverterResult {
 
 	private final boolean success;
 	private final String message;
-	private final URI link;
 	private static final String DEFAULT_MESSAGE = "Resource not found";
 	
-	public ConverterResult(boolean success, float value,  URI link) {
+	public ConverterResult(boolean success, float value) {
 		super();
 		this.success = success;
-		this.link = link;
 		
 		if(success) {
 			this.message = String.format("%.2f", value);
 		}
 		else {
-			this.message = this.DEFAULT_MESSAGE;
+			this.message = DEFAULT_MESSAGE;
 		}
 		
 		
@@ -35,7 +33,5 @@ public class ConverterResult {
 		return message;
 	}
 	
-	public URI getLink() {
-		return link;
-	}
+
 }

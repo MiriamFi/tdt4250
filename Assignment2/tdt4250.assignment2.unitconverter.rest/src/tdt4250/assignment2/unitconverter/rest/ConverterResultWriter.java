@@ -30,7 +30,7 @@ public class ConverterResultWriter implements MessageBodyWriter<ConverterResult>
 
 	private ObjectMapper objectMapper = new ObjectMapper();
 	{
-		objectMapper.registerModule(new UnitModule());
+		objectMapper.registerModule(new ConversionModule());
 	}
 	
 	@Override

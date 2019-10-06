@@ -1,6 +1,5 @@
 package tdt4250.assignment2.unitconverter.rest;
 
-import tdt4250.assignment2.unitconverter.api.Unit;
 
 import java.util.Collection;
 
@@ -18,34 +17,29 @@ import org.osgi.service.jaxrs.whiteboard.propertytypes.JaxrsResource;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import tdt4250.assignment2.unitconverter.api.Conversion;
 import tdt4250.assignment2.unitconverter.api.Converter;
 import tdt4250.assignment2.unitconverter.api.ConverterResult;
 
-@Component(service=UnitResource.class)
+@Component(service=ConversionResource.class)
 @JaxrsResource
-@Path("unit")
-public class UnitResource {
+@Path("conversion")
+public class ConversionResource {
 	@Reference(
 			policy = ReferencePolicy.DYNAMIC
 			)
-	private volatile Collection<Unit> units;
+	private volatile Collection<Conversion> conversions;
 	
 	public Converter getConverter() {
-		return new Converter(units.toArray(new Unit[units.size()]));
+		return new Converter(conversions.toArray(new Conversion[conversions.size()]));
 	}
 
 	@GET
 	@Path("/{lang1}/{lang2}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ConverterResult search(@PathParam("lang1") String lang1, @PathParam("lang2") String lang2, @QueryParam("v") String v) throws JsonProcessingException {
-		return getConverter().convertUnit(lang1, lang2, v, "-1");
+		return getConverter().convertUnit(lang1, lang2, v);
 	}
 	
-	@GET
-	@Path("/{lang1}/{lang2}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public ConverterResult search(@PathParam("lang1") String lang1, @PathParam("lang2") String lang2, @QueryParam("v") String v, @QueryParam("d") String d) throws JsonProcessingException {
-		return getConverter().convertUnit(lang1, lang2, v, d);
-	}
 
 }

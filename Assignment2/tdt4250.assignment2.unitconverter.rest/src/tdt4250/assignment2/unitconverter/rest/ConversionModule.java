@@ -11,12 +11,12 @@ import com.fasterxml.jackson.databind.module.SimpleSerializers;
 
 import tdt4250.assignment2.unitconverter.api.ConverterResult;
 
-public class UnitModule extends Module{
+public class ConversionModule extends Module{
 	
 	
 	private final SimpleSerializers serializers = new SimpleSerializers();
 	
-	public UnitModule() {
+	public ConversionModule() {
 		serializers.addSerializer(ConverterResult.class, new JsonSerializer<ConverterResult>(){
 			@Override
 			public void serialize(ConverterResult converterResult, JsonGenerator jsonGen, 
@@ -24,9 +24,6 @@ public class UnitModule extends Module{
 					jsonGen.writeStartObject(converterResult);
 					jsonGen.writeBooleanField("success", converterResult.isSuccess());
 					jsonGen.writeStringField("message", converterResult.getMessage());
-					if (converterResult.getLink() != null) {
-						jsonGen.writeStringField("link", converterResult.getLink().toString());
-					}
 			}
 		});
 		
@@ -34,7 +31,7 @@ public class UnitModule extends Module{
 
 	@Override
 	public String getModuleName() {
-		return "UnitModule";
+		return "ConversionModule";
 	}
 
 	@Override
