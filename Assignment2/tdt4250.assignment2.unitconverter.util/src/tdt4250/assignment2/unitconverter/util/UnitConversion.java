@@ -15,7 +15,7 @@ import tdt4250.assignment2.unitconverter.api.Unit;
 public class UnitConversion implements Conversion{
 	
 	public static final String FACTORY_PID = "tdt4250.unitConversion.util.UnitConversion";
-	public static final String CONV_NAME_PROP = "";
+	public static final String CONV_NAME_PROP = "conversionName";
 	public static final String EXPRESSION_PROP = "";
 	
 	
@@ -86,7 +86,7 @@ public class UnitConversion implements Conversion{
 		}
 		return result;
 	}
-	
+	/*
 	
 	@Activate
 	protected void activate(UnitConversionConfig config)  {
@@ -101,7 +101,7 @@ public class UnitConversion implements Conversion{
 		this.setConversionName(config.conversionName());
 		this.setExpression(config.expression());
 	}
-	
+	*/
 
 	protected void setConversionName(String convName) {
 		this.conversionName = convName;
@@ -115,7 +115,7 @@ public class UnitConversion implements Conversion{
 		String[] expParts = expression.split(" ");
 		
 		
-		if (expParts.length != 5 || expParts.length != 7) {
+		if (expParts.length != 5 && expParts.length != 7) {
 			success = false;
 		}
 		
@@ -123,7 +123,7 @@ public class UnitConversion implements Conversion{
 			success = false;
 		}
 		
-		if (expParts[1] != "=" ) {
+		if (expParts[1].equals("=") ) {
 			success = false;
 		}
 		
@@ -134,10 +134,10 @@ public class UnitConversion implements Conversion{
 			success = false;
 		}
 		
-		if (expParts[3] == "*") {
+		if (expParts[3].equals("*")) {
 			this.isMultiplication = true;
 		}
-		else if (expParts[3] == "/" ) {
+		else if (expParts[3].equals("/") ) {
 			this.isMultiplication = false;
 		}
 		else {
@@ -149,10 +149,10 @@ public class UnitConversion implements Conversion{
 		}
 		
 		if (expParts.length == 7) {
-			if (expParts[5] == "+") {
+			if (expParts[5].equals("+")) {
 				this.isAddition = true;
 			}
-			else if (expParts[5] == "-" ) {
+			else if (expParts[5].equals("-") ) {
 				this.isAddition = false;
 			}
 			else {

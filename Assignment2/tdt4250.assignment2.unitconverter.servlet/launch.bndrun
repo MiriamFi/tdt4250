@@ -14,20 +14,20 @@
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
 	osgi.identity;filter:='(osgi.identity=tdt4250.assignment2.unitconverter.servlet)',\
 	bnd.identity;version='latest';id='tdt4250.assignment2.unitconverter.gogo',\
-	bnd.identity;version='latest';id='tdt4250.assignment2.unitconverter.no',\
 	bnd.identity;id='org.apache.felix.configadmin',\
-	bnd.identity;id='org.osgi.service.cm'
+	bnd.identity;id='org.osgi.service.cm',\
+	bnd.identity;version='latest';id='tdt4250.assignment2.unitconverter.conversions'
 -runbundles: \
-	org.apache.felix.gogo.command,\
-	org.apache.felix.gogo.runtime,\
-	org.apache.felix.gogo.shell,\
-	org.apache.felix.http.jetty,\
-	org.apache.felix.http.servlet-api,\
-	org.apache.felix.scr,\
-	tdt4250.assignment2.unitconverter.api;version=latest,\
-	tdt4250.assignment2.unitconverter.gogo;version=latest,\
-	tdt4250.assignment2.unitconverter.servlet;version=latest,\
-	tdt4250.assignment2.unitconverter.util;version=latest,\
-	org.apache.felix.configadmin,\
-	org.osgi.service.cm,\
-	tdt4250.assignment2.unitconverter.conversions;version=latest
+	org.apache.felix.configadmin;version='[1.9.8,1.9.9)',\
+	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
+	org.apache.felix.gogo.runtime;version='[1.0.10,1.0.11)',\
+	org.apache.felix.gogo.shell;version='[1.0.0,1.0.1)',\
+	org.apache.felix.http.jetty;version='[4.0.6,4.0.7)',\
+	org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)',\
+	org.apache.felix.scr;version='[2.1.10,2.1.11)',\
+	org.osgi.service.cm;version='[1.5.0,1.5.1)',\
+	tdt4250.assignment2.unitconverter.api;version=snapshot,\
+	tdt4250.assignment2.unitconverter.conversions;version=snapshot,\
+	tdt4250.assignment2.unitconverter.gogo;version=snapshot,\
+	tdt4250.assignment2.unitconverter.servlet;version=snapshot,\
+	tdt4250.assignment2.unitconverter.util;version=snapshot

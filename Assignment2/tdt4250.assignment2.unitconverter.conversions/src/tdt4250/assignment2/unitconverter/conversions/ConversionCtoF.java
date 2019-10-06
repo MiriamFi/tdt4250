@@ -8,6 +8,7 @@ import tdt4250.assignment2.unitconverter.util.UnitConversion;
 
 
 @Component(
+		property = { UnitConversion.CONV_NAME_PROP + "=CelciusFahrenheit" } 
 		)
 public class ConversionCtoF extends UnitConversion implements Conversion{
 

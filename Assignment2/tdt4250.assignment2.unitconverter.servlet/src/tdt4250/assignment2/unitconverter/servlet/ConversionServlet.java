@@ -2,9 +2,6 @@ package tdt4250.assignment2.unitconverter.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.Servlet;
@@ -88,6 +85,8 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 		Unit startUnit = converter.getUnit(request.getParameter(FROM_PARAM));
 		Unit endUnit = converter.getUnit(request.getParameter(TO_PARAM));
 		if (startUnit == null || endUnit == null) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST,
+					"Request must contain valid units");
 			return;
 		}
 
@@ -97,6 +96,7 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 		writer.print(result.getMessage());
 		//sendResponse(result, response);
 	}
+	
 	
 	
 

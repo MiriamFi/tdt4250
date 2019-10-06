@@ -1,8 +1,5 @@
 package tdt4250.assignment2.unitconverter.api;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,27 +8,38 @@ public class Converter {
 	private Map<String, Conversion> conversions = new HashMap<String, Conversion>();
 	private Map<String, Unit> units = new HashMap<String, Unit>();
 	
+	public void addConversions(Conversion... conversions) {
+		for(Conversion conversion : conversions) {
+			this.conversions.put(conversion.getConversionName(), conversion);
+		}
+		
+		
+	}
 	
 	public void addConversion(Conversion conversion) {
 		this.conversions.put(conversion.getConversionName(), conversion);
+		this.addUnit(conversion.getStartUnit());
+		this.addUnit(conversion.getEndUnit());
 	}
 	
 	public void removeConversion(Conversion conversion) {
 		this.conversions.remove(conversion.getConversionName());
+		this.removeUnit(conversion.getStartUnit());
+		this.removeUnit(conversion.getEndUnit());
 	}
 	
 	
 	public void addUnit(Unit unit) {
-		this.units.put(unit.getName(), unit);
+		this.units.put(unit.getSymbol(), unit);
 	}
 	
 	public void removeUnit(Unit unit) {
-		this.units.remove(unit.getName());
+		this.units.remove(unit.getSymbol());
 	}
 	
-	public Unit getUnit(String unitName) {
-		if (this.isUnitNameValid(unitName)) {
-			return units.get(unitName);
+	public Unit getUnit(String unitSymbol) {
+		if (this.isUnitSymbolValid(unitSymbol)) {
+			return units.get(unitSymbol);
 		}
 		return null;
 	}
@@ -40,8 +48,8 @@ public class Converter {
 			return conversions.get(conversionName);
 	}
 	
-	public boolean isUnitNameValid(String unitName) {
-		return units.containsKey(unitName);
+	public boolean isUnitSymbolValid(String unitSymbol) {
+		return units.containsKey(unitSymbol);
 	}
 	public boolean isConversionNameValid(String conversionName) {
 		return conversions.containsKey(conversionName);
