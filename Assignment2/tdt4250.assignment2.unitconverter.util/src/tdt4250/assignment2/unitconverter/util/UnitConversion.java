@@ -38,7 +38,7 @@ public abstract class UnitConversion implements Conversion{
 	private float a;
 	private float b;
 	private boolean isMultiplication; // vs. division
-	private boolean isAddition; // vd. subtraction
+	private boolean isAddition; // vs. subtraction
 	
 
 	@Override
@@ -90,22 +90,7 @@ public abstract class UnitConversion implements Conversion{
 		}
 		return result;
 	}
-	/*
-	
-	@Activate
-	protected void activate(UnitConversionConfig config)  {
-		this.update(config);
-	}
-	@Modified
-	protected void modify(UnitConversionConfig config)  {
-		this.update(config);
-	}
 
-	protected void update(UnitConversionConfig config)  {
-		this.setConversionName(config.conversionName());
-		this.setExpression(config.expression());
-	}
-	*/
 
 	protected void setConversionName(String convName) {
 		this.conversionName = convName;

@@ -1,6 +1,5 @@
 package tdt4250.assignment2.unitconverter.api;
 
-import java.net.URI;
 
 import org.osgi.annotation.versioning.ConsumerType;
 

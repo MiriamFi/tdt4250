@@ -45,7 +45,7 @@ public class ConversionCommands {
 	
 	@Descriptor("list available conversions")
 	public void list() {
-		System.out.print("Conversions: ");
+		System.out.println("Conversions: ");
 		BundleContext bc = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 		try {
 			for (ServiceReference<Conversion> serviceReference : bc.getServiceReferences(Conversion.class, null)) {
@@ -124,25 +124,6 @@ public class ConversionCommands {
 		Unit startUnit = Converter.getUnit(startUnitSymbol);
 		Unit endUnit = Converter.getUnit(endUnitSymbol);
 		
-		
-		/*
-		try {
-			for (ServiceReference<Unit> serviceReference : bc.getServiceReferences(Unit.class, null)) {
-				Unit unit = bc.getService(serviceReference);
-				try {
-					if (unit != null && unit.getSymbol().equals(startUnitSymbol)) {
-						startUnit = unit;
-					}
-					else if (unit != null && unit.getSymbol().equals(endUnitSymbol)) {
-						endUnit = unit;
-					}
-				} finally {
-					bc.ungetService(serviceReference);
-				}
-			}
-		} catch (InvalidSyntaxException e) {
-			throw new RuntimeException(e);
-		}*/
 		if( startUnit == null || endUnit == null) {
 			throw new Exception("Unit name does not exists");
 			
@@ -152,7 +133,7 @@ public class ConversionCommands {
 		String conversionName = startUnitSymbol + endUnitSymbol;
 		Configuration config = getConfig(conversionName);
 		if (config == null) {
-			// create a new one
+			
 			config = cm.createFactoryConfiguration(UnitConversion.FACTORY_PID, "?");
 		}
 		
@@ -164,20 +145,7 @@ public class ConversionCommands {
 		Conversion conversion = new UnitConversion(startUnit, endUnit, conversionName, expression) {
 		};
 		Converter.addConversion(conversion);
-		/*
-		try {
-			for (ServiceReference<Conversion> serviceReference : bc.getServiceReferences(Conversion.class, null)) {
-				Conversion conversion = bc.getService(serviceReference);
-				try {
-					if (conversion.getConversionName() == conversionName) {
-						conversion.setUnits(startUnit, endUnit);
-					}
-				} finally {
-					bc.ungetService(serviceReference);
-				}
-			}
-		} catch (InvalidSyntaxException e) {
-		}*/
+		
 		config.update(props);
 		bc.registerService(Conversion.class, conversion, props);
 		System.out.println("Conversion from " + startUnitSymbol + " to " + endUnitSymbol + " has been added.");

@@ -75,21 +75,7 @@ public class Converter {
 		}
 		return result;
 	}
-	/*
-	public ConverterResult convertUnit(Unit startUnit, Unit endUnit, float value) {
-		ConverterResult result;
-		boolean success = true;
-		
-		Conversion conversion = conversionSearch(startUnit.getName(), endUnit.getName());
-		if(conversion == null) {
-			success = false;
-			result = new ConverterResult(success, value);
-		} else {
-			result= conversion.convert(startUnit.getName(), endUnit.getName(), value);
-		}
-		return result;
-	}
-	*/
+
 	private static Conversion conversionSearch(String startUnitSymbol, String endUnitSymbol) {
 			String conversionName = startUnitSymbol + endUnitSymbol;
 			return conversions.get(conversionName);

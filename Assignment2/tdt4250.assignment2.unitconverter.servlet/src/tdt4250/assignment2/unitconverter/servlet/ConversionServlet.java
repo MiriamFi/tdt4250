@@ -27,7 +27,6 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 1L;
 
-	//private Converter converter = new Converter();
 	
 	private static final String VALUE_PARAM = "v";
 	private static final String FROM_PARAM = "from";
@@ -46,29 +45,6 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 	public void removeConversion(Conversion conversion) {
 		Converter.removeConversion(conversion);
 	}
-/*
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<String> segments = new ArrayList<>();
-		String path = request.getPathTranslated();
-		if (path != null) {
-			segments.addAll(Arrays.asList(path.split("\\/")));
-		}
-		if (segments.size() > 0 && segments.get(0).length() == 0) {
-			segments.remove(0);
-		}
-		if (segments.size() < 2) {
-			response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "Request must contain 2 path segments");
-			return;
-		}
-		String v = request.getParameter("v");
-		String startUnit = segments.get(0);
-		String endUnit = segments.get(1);
-		
-		ConverterResult result =  converter.convertUnit(startUnit, endUnit , v);
-		response.setContentType("text/plain");
-		PrintWriter writer = response.getWriter();
-		writer.print(result.getMessage());
-	}*/
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> parameterMap = request.getParameterMap();
@@ -94,7 +70,7 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 		response.setContentType("text/plain");
 		PrintWriter writer = response.getWriter();
 		writer.print(result.getMessage());
-		//sendResponse(result, response);
+		
 	}
 	
 	
