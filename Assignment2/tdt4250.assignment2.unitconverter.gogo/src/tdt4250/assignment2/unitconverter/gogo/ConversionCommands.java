@@ -87,24 +87,24 @@ public class ConversionCommands {
 				Conversion conversion = bc.getService(serviceReference);
 				if (conversion != null) {
 					try {
-						if( startUnitSymbol.equals(conversion.getStartUnit().getSymbol()) && endUnitSymbol.equals(conversion.getEndUnit().getSymbol())) {
+						if( startUnitSymbol.equals(conversion.getStartUnit().getSymbol())
+								&& endUnitSymbol.equals(conversion.getEndUnit().getSymbol())) {
 							converterResult = conversion.convert(startUnitSymbol, endUnitSymbol, value);
+							
 						}
 						
 					} finally {
 						bc.ungetService(serviceReference);
 					}
-				} else {
-					System.out.println(serviceReference.getProperties());
-				}
-				if(converterResult == null) {
-					boolean success = false;
-					converterResult = new ConverterResult(success, value);
-				}
-				System.out.println(converterResult.getMessage());
+				} 
 			}
 		} catch (InvalidSyntaxException e) {
 		}
+		if(converterResult == null) {
+			boolean success = false;
+			converterResult = new ConverterResult(success, value);
+		}
+		System.out.println(converterResult.getMessage());
 	}
 	
 	@Reference(cardinality = ReferenceCardinality.MANDATORY)
