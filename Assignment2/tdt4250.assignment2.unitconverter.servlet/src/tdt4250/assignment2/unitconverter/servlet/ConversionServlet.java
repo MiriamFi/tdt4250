@@ -27,7 +27,7 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private Converter converter = new Converter();
+	//private Converter converter = new Converter();
 	
 	private static final String VALUE_PARAM = "v";
 	private static final String FROM_PARAM = "from";
@@ -41,10 +41,10 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 			unbind = "removeConversion"
 	)
 	public void addConversion(Conversion conversion) {
-		converter.addConversion(conversion);
+		Converter.addConversion(conversion);
 	}
 	public void removeConversion(Conversion conversion) {
-		converter.removeConversion(conversion);
+		Converter.removeConversion(conversion);
 	}
 /*
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -82,20 +82,21 @@ public class ConversionServlet extends HttpServlet implements Servlet {
 		}
 
 		String value = request.getParameter(VALUE_PARAM);
-		Unit startUnit = converter.getUnit(request.getParameter(FROM_PARAM));
-		Unit endUnit = converter.getUnit(request.getParameter(TO_PARAM));
+		Unit startUnit = Converter.getUnit(request.getParameter(FROM_PARAM));
+		Unit endUnit = Converter.getUnit(request.getParameter(TO_PARAM));
 		if (startUnit == null || endUnit == null) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST,
 					"Request must contain valid units");
 			return;
 		}
 
-		ConverterResult result = converter.convertUnit(startUnit.getName(), endUnit.getName(), value);
+		ConverterResult result = Converter.convertUnit(startUnit.getSymbol(), endUnit.getSymbol(), value);
 		response.setContentType("text/plain");
 		PrintWriter writer = response.getWriter();
 		writer.print(result.getMessage());
 		//sendResponse(result, response);
 	}
+	
 	
 	
 	

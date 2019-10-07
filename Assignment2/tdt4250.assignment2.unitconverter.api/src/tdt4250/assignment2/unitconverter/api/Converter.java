@@ -5,57 +5,57 @@ import java.util.Map;
 
 public class Converter {
 
-	private Map<String, Conversion> conversions = new HashMap<String, Conversion>();
-	private Map<String, Unit> units = new HashMap<String, Unit>();
+	private static Map<String, Conversion> conversions = new HashMap<String, Conversion>();
+	private static Map<String, Unit> units = new HashMap<String, Unit>();
 	
-	public void addConversions(Conversion... conversions) {
+	public static void addConversions(Conversion... conversions) {
 		for(Conversion conversion : conversions) {
-			this.conversions.put(conversion.getConversionName(), conversion);
+			addConversion(conversion);
 		}
 		
 		
 	}
 	
-	public void addConversion(Conversion conversion) {
-		this.conversions.put(conversion.getConversionName(), conversion);
-		this.addUnit(conversion.getStartUnit());
-		this.addUnit(conversion.getEndUnit());
+	public static void addConversion(Conversion conversion) {
+		conversions.put(conversion.getConversionName(), conversion);
+		addUnit(conversion.getStartUnit());
+		addUnit(conversion.getEndUnit());
 	}
 	
-	public void removeConversion(Conversion conversion) {
-		this.conversions.remove(conversion.getConversionName());
-		this.removeUnit(conversion.getStartUnit());
-		this.removeUnit(conversion.getEndUnit());
+	public static void removeConversion(Conversion conversion) {
+		conversions.remove(conversion.getConversionName());
+		removeUnit(conversion.getStartUnit());
+		removeUnit(conversion.getEndUnit());
 	}
 	
 	
-	public void addUnit(Unit unit) {
-		this.units.put(unit.getSymbol(), unit);
+	public static void addUnit(Unit unit) {
+		units.put(unit.getSymbol(), unit);
 	}
 	
-	public void removeUnit(Unit unit) {
-		this.units.remove(unit.getSymbol());
+	public static void removeUnit(Unit unit) {
+		units.remove(unit.getSymbol());
 	}
 	
-	public Unit getUnit(String unitSymbol) {
-		if (this.isUnitSymbolValid(unitSymbol)) {
+	public static Unit getUnit(String unitSymbol) {
+		if (isUnitSymbolValid(unitSymbol)) {
 			return units.get(unitSymbol);
 		}
 		return null;
 	}
 	
-	public Conversion getConversion(String conversionName) {
+	public static Conversion getConversion(String conversionName) {
 			return conversions.get(conversionName);
 	}
 	
-	public boolean isUnitSymbolValid(String unitSymbol) {
+	public static boolean isUnitSymbolValid(String unitSymbol) {
 		return units.containsKey(unitSymbol);
 	}
-	public boolean isConversionNameValid(String conversionName) {
+	public static boolean isConversionNameValid(String conversionName) {
 		return conversions.containsKey(conversionName);
 	}
 	
-	public ConverterResult convertUnit(String startUnitName, String endUnitName, String value) {
+	public static ConverterResult convertUnit(String startUnitName, String endUnitName, String value) {
 		ConverterResult result;
 		boolean success = true;
 		Float v = 0.0f;
@@ -66,7 +66,7 @@ public class Converter {
 			success = false;
 		}
 		
-		Conversion conversion = this.conversionSearch(startUnitName, endUnitName);
+		Conversion conversion = conversionSearch(startUnitName, endUnitName);
 		if(conversion == null) {
 			success = false;
 			result = new ConverterResult(success, v);
@@ -80,7 +80,7 @@ public class Converter {
 		ConverterResult result;
 		boolean success = true;
 		
-		Conversion conversion = this.conversionSearch(startUnit.getName(), endUnit.getName());
+		Conversion conversion = conversionSearch(startUnit.getName(), endUnit.getName());
 		if(conversion == null) {
 			success = false;
 			result = new ConverterResult(success, value);
@@ -90,9 +90,9 @@ public class Converter {
 		return result;
 	}
 	*/
-	private Conversion conversionSearch(String startUnitName, String endUnitName) {
-			String conversionName = startUnitName + endUnitName;
-			return this.conversions.get(conversionName);
+	private static Conversion conversionSearch(String startUnitSymbol, String endUnitSymbol) {
+			String conversionName = startUnitSymbol + endUnitSymbol;
+			return conversions.get(conversionName);
 	}
 	
 	

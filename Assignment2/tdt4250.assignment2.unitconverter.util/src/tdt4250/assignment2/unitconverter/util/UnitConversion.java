@@ -1,9 +1,7 @@
 package tdt4250.assignment2.unitconverter.util;
 
-import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
-import org.osgi.service.component.annotations.Modified;
 
 import tdt4250.assignment2.unitconverter.api.Conversion;
 import tdt4250.assignment2.unitconverter.api.ConverterResult;
@@ -12,12 +10,18 @@ import tdt4250.assignment2.unitconverter.api.Unit;
 @Component(
 		configurationPid = UnitConversion.FACTORY_PID,
 		configurationPolicy = ConfigurationPolicy.REQUIRE)
-public class UnitConversion implements Conversion{
+public abstract class UnitConversion implements Conversion{
 	
 	public static final String FACTORY_PID = "tdt4250.unitConversion.util.UnitConversion";
 	public static final String CONV_NAME_PROP = "conversionName";
-	public static final String EXPRESSION_PROP = "";
+	public static final String EXPRESSION_PROP = "expression";
 	
+	public UnitConversion(Unit startUnit, Unit endUnit, String conversionName, String expression) {
+		this.startUnit = startUnit;
+		this.endUnit = endUnit;
+		this.conversionName = conversionName;
+		this.setExpression(expression);
+	}
 	
 
 	public @interface UnitConversionConfig {
@@ -56,10 +60,10 @@ public class UnitConversion implements Conversion{
 	public ConverterResult convert(String startUnitSymbol, String endUnitSymbol, float value) {
 		boolean success = true;
 		float result = 0.0f;
-		if(startUnit.getName() != startUnitSymbol) {
+		if(!startUnit.getSymbol().equals(startUnitSymbol)) {
 			success = false;
 		}
-		else if(endUnit.getName() != endUnitSymbol) {
+		else if(!endUnit.getSymbol().equals(endUnitSymbol)) {
 			success = false;
 		}
 		if(success) {
@@ -119,11 +123,11 @@ public class UnitConversion implements Conversion{
 			success = false;
 		}
 		
-		if (expParts[0] != endUnit.getSymbol()) {
+		if (!expParts[0].equals(endUnit.getSymbol())) {
 			success = false;
 		}
 		
-		if (expParts[1].equals("=") ) {
+		if (!expParts[1].equals("=") ) {
 			success = false;
 		}
 		
@@ -144,7 +148,7 @@ public class UnitConversion implements Conversion{
 			success = false;
 		}
 		
-		if (expParts[4] != startUnit.getSymbol()) {
+		if (!expParts[4].equals(startUnit.getSymbol())) {
 			success = false;
 		}
 		
@@ -191,10 +195,9 @@ public class UnitConversion implements Conversion{
 	}
 
 	@Override
-	public void setUnits(Unit startUnit, Unit endUnit) throws Exception {
+	public void setUnits(Unit startUnit, Unit endUnit) {
 		this.startUnit = startUnit;
 		this.endUnit = endUnit;
-		
 	}
 
 }

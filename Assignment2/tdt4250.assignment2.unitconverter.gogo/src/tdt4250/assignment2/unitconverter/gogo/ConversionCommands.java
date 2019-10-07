@@ -16,6 +16,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 
 import tdt4250.assignment2.unitconverter.api.Conversion;
+import tdt4250.assignment2.unitconverter.api.Converter;
 import tdt4250.assignment2.unitconverter.api.ConverterResult;
 import tdt4250.assignment2.unitconverter.api.Unit;
 import tdt4250.assignment2.unitconverter.util.UnitConversion;
@@ -62,7 +63,7 @@ public class ConversionCommands {
 				} finally {
 					bc.ungetService(serviceReference);
 				}
-				System.out.print(" ");
+				System.out.println();
 			}
 		} catch (InvalidSyntaxException e) {
 		}
@@ -86,7 +87,7 @@ public class ConversionCommands {
 				Conversion conversion = bc.getService(serviceReference);
 				if (conversion != null) {
 					try {
-						if( startUnitSymbol == conversion.getStartUnit().getSymbol() && endUnitSymbol == conversion.getEndUnit().getSymbol()) {
+						if( startUnitSymbol.equals(conversion.getStartUnit().getSymbol()) && endUnitSymbol.equals(conversion.getEndUnit().getSymbol())) {
 							converterResult = conversion.convert(startUnitSymbol, endUnitSymbol, value);
 						}
 						
@@ -112,24 +113,27 @@ public class ConversionCommands {
 	@Descriptor("add a conversion")
 	public void add(
 			@Descriptor("the name of start unit")
-			String startUnitName,
+			String startUnitSymbol,
 			@Descriptor("the name of the end unit")
-			String endUnitName,
+			String endUnitSymbol,
 			@Descriptor("The conversion expression. Format: [endUnit] = a * [startUnit] + b")
 			String expression
 			) throws Exception {
 		
 		BundleContext bc = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
-		Unit startUnit = null;
-		Unit endUnit = null;
+		Unit startUnit = Converter.getUnit(startUnitSymbol);
+		Unit endUnit = Converter.getUnit(endUnitSymbol);
+		
+		
+		/*
 		try {
 			for (ServiceReference<Unit> serviceReference : bc.getServiceReferences(Unit.class, null)) {
 				Unit unit = bc.getService(serviceReference);
 				try {
-					if (unit != null && unit.getName()==startUnitName) {
+					if (unit != null && unit.getSymbol().equals(startUnitSymbol)) {
 						startUnit = unit;
 					}
-					else if (unit != null && unit.getName()==endUnitName) {
+					else if (unit != null && unit.getSymbol().equals(endUnitSymbol)) {
 						endUnit = unit;
 					}
 				} finally {
@@ -137,15 +141,15 @@ public class ConversionCommands {
 				}
 			}
 		} catch (InvalidSyntaxException e) {
-		}
+			throw new RuntimeException(e);
+		}*/
 		if( startUnit == null || endUnit == null) {
 			throw new Exception("Unit name does not exists");
 			
 		}
 		
 		
-		
-		String conversionName = startUnitName + endUnitName;
+		String conversionName = startUnitSymbol + endUnitSymbol;
 		Configuration config = getConfig(conversionName);
 		if (config == null) {
 			// create a new one
@@ -157,7 +161,10 @@ public class ConversionCommands {
 		if (expression != null) {
 			props.put(UnitConversion.EXPRESSION_PROP, expression);
 		}
-		
+		Conversion conversion = new UnitConversion(startUnit, endUnit, conversionName, expression) {
+		};
+		Converter.addConversion(conversion);
+		/*
 		try {
 			for (ServiceReference<Conversion> serviceReference : bc.getServiceReferences(Conversion.class, null)) {
 				Conversion conversion = bc.getService(serviceReference);
@@ -170,9 +177,10 @@ public class ConversionCommands {
 				}
 			}
 		} catch (InvalidSyntaxException e) {
-		}
+		}*/
 		config.update(props);
-		System.out.println("Conversion from " + startUnitName + " to " + endUnitName + " has been added.");
+		bc.registerService(Conversion.class, conversion, props);
+		System.out.println("Conversion from " + startUnitSymbol + " to " + endUnitSymbol + " has been added.");
 	}
 	
 }

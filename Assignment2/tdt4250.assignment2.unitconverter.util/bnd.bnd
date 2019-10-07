@@ -14,3 +14,7 @@ javac.source: 1.8
 javac.target: 1.8
 
 Bundle-Version: 0.0.0.${tstamp}
+-runrequires: bnd.identity;version='latest';id='tdt4250.assignment2.unitconverter.api'
+-runfw: org.eclipse.osgi;version='[3.13.100.v20180827-1536,3.13.100.v20180827-1536]'
+-runee: JavaSE-1.8
+-runbundles: tdt4250.assignment2.unitconverter.api;version=snapshot
