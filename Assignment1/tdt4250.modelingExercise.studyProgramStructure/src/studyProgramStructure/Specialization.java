@@ -126,22 +126,24 @@ public interface Specialization extends EObject {
 	EList<Semester> getSemesters();
 
 	/**
-	 * Returns the value of the '<em><b>Program</b></em>' reference.
+	 * Returns the value of the '<em><b>Program</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link studyProgramStructure.Program#getSpecializations <em>Specializations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Program</em>' reference.
+	 * @return the value of the '<em>Program</em>' container reference.
 	 * @see #setProgram(Program)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getSpecialization_Program()
-	 * @model required="true"
+	 * @see studyProgramStructure.Program#getSpecializations
+	 * @model opposite="specializations" required="true" transient="false"
 	 * @generated
 	 */
 	Program getProgram();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Specialization#getProgram <em>Program</em>}' reference.
+	 * Sets the value of the '{@link studyProgramStructure.Specialization#getProgram <em>Program</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Program</em>' reference.
+	 * @param value the new value of the '<em>Program</em>' container reference.
 	 * @see #getProgram()
 	 * @generated
 	 */

@@ -98,11 +98,13 @@ public interface Program extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Specializations</b></em>' containment reference list.
 	 * The list contents are of type {@link studyProgramStructure.Specialization}.
+	 * It is bidirectional and its opposite is '{@link studyProgramStructure.Specialization#getProgram <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specializations</em>' containment reference list.
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_Specializations()
-	 * @model containment="true"
+	 * @see studyProgramStructure.Specialization#getProgram
+	 * @model opposite="program" containment="true"
 	 * @generated
 	 */
 	EList<Specialization> getSpecializations();

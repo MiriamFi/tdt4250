@@ -53,7 +53,6 @@
     </genClasses>
     <genClasses ecoreClass="studyProgramStructure.ecore#//CourseGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/numOfNeededCourses"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//CourseGroup/semester"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//CourseGroup/courses"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/status"/>

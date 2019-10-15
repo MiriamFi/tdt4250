@@ -260,7 +260,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int SPECIALIZATION__SEMESTERS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Program</b></em>' reference.
+	 * The feature id for the '<em><b>Program</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -379,22 +379,13 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int COURSE_GROUP__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Num Of Needed Courses</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_GROUP__NUM_OF_NEEDED_COURSES = 1;
-
-	/**
 	 * The feature id for the '<em><b>Semester</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_GROUP__SEMESTER = 2;
+	int COURSE_GROUP__SEMESTER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Courses</b></em>' reference list.
@@ -403,7 +394,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_GROUP__COURSES = 3;
+	int COURSE_GROUP__COURSES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -412,7 +403,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_GROUP__STATUS = 4;
+	int COURSE_GROUP__STATUS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Course Group</em>' class.
@@ -421,7 +412,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_GROUP_FEATURE_COUNT = 5;
+	int COURSE_GROUP_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Course Group</em>' class.
@@ -879,10 +870,10 @@ public interface StudyProgramStructurePackage extends EPackage {
 	EReference getSpecialization_Semesters();
 
 	/**
-	 * Returns the meta object for the reference '{@link studyProgramStructure.Specialization#getProgram <em>Program</em>}'.
+	 * Returns the meta object for the container reference '{@link studyProgramStructure.Specialization#getProgram <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Program</em>'.
+	 * @return the meta object for the container reference '<em>Program</em>'.
 	 * @see studyProgramStructure.Specialization#getProgram()
 	 * @see #getSpecialization()
 	 * @generated
@@ -974,17 +965,6 @@ public interface StudyProgramStructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCourseGroup_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link studyProgramStructure.CourseGroup#getNumOfNeededCourses <em>Num Of Needed Courses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Num Of Needed Courses</em>'.
-	 * @see studyProgramStructure.CourseGroup#getNumOfNeededCourses()
-	 * @see #getCourseGroup()
-	 * @generated
-	 */
-	EAttribute getCourseGroup_NumOfNeededCourses();
 
 	/**
 	 * Returns the meta object for the container reference '{@link studyProgramStructure.CourseGroup#getSemester <em>Semester</em>}'.
@@ -1395,7 +1375,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 		EReference SPECIALIZATION__SEMESTERS = eINSTANCE.getSpecialization_Semesters();
 
 		/**
-		 * The meta object literal for the '<em><b>Program</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Program</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1469,14 +1449,6 @@ public interface StudyProgramStructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COURSE_GROUP__NAME = eINSTANCE.getCourseGroup_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Num Of Needed Courses</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COURSE_GROUP__NUM_OF_NEEDED_COURSES = eINSTANCE.getCourseGroup_NumOfNeededCourses();
 
 		/**
 		 * The meta object literal for the '<em><b>Semester</b></em>' container reference feature.

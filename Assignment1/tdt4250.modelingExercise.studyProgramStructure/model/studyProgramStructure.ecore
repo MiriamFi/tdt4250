@@ -64,9 +64,7 @@
         eOpposite="#//Specialization/semesters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CourseGroup">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfNeededCourses" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semester" lowerBound="1"
         eType="#//Semester" eOpposite="#//Semester/courseGroups"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"

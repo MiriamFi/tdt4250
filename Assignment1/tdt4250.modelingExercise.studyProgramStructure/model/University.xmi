@@ -11,64 +11,115 @@
     <specializations
         name="Programvaresystemer"
         numOfSemesters="2"
-        furtherSpecializations="//@programs.0/@specializations.1"
-        program="//@programs.0">
+        furtherSpecializations="//@programs.0/@specializations.1">
       <semesters
-          semesterNum="5"/>
+          semesterNum="5">
+        <courseGroups
+            courses="//@courses.18 //@courses.19 //@courses.20"/>
+        <courseGroups
+            courses="//@courses.21"
+            status="elective"/>
+      </semesters>
       <semesters
           semesterNum="6"
-          season="spring"/>
+          season="spring">
+        <courseGroups
+            courses="//@courses.22 //@courses.23 //@courses.24 //@courses.25"/>
+      </semesters>
     </specializations>
     <specializations
         name="Programvareutvikling"
         numOfSemesters="4"
-        baseSpecialization="//@programs.0/@specializations.0"
-        program="//@programs.0">
+        baseSpecialization="//@programs.0/@specializations.0">
       <semesters
-          semesterNum="7"/>
+          semesterNum="7">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.1 //@courses.3"/>
+        <courseGroups
+            name="K-emner"
+            courses="//@courses.26 //@courses.27"
+            status="elective"/>
+      </semesters>
       <semesters
           semesterNum="8"
-          season="spring"/>
+          season="spring">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.2"/>
+        <courseGroups
+            name="Elective courses"
+            courses="//@courses.28"
+            status="elective"/>
+        <courseGroups
+            name="Ingeniøremne"
+            courses="//@courses.29"
+            status="elective"/>
+        <courseGroups
+            name="EIT"
+            courses="//@courses.30"
+            status="elective"/>
+      </semesters>
       <semesters
-          semesterNum="9"/>
+          semesterNum="9">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.31 //@courses.32"/>
+        <courseGroups
+            name="K-emner"
+            courses="//@courses.26 //@courses.27"
+            status="elective"/>
+      </semesters>
       <semesters
           semesterNum="10"
-          season="spring"/>
+          season="spring">
+        <courseGroups
+            name="Masteroppgave"
+            courses="//@courses.33"/>
+      </semesters>
     </specializations>
     <specializations
         name="Databaser og søk"
-        numOfSemesters="6"
-        program="//@programs.0">
-      <semesters
-          semesterNum="7"/>
+        numOfSemesters="6">
       <semesters
           semesterNum="5"/>
-      <semesters
-          semesterNum="9"/>
-      <semesters
-          semesterNum="8"
-          season="spring"/>
       <semesters
           semesterNum="6"
           season="spring"/>
       <semesters
+          semesterNum="7"/>
+      <semesters
+          semesterNum="8"
+          season="spring"/>
+      <semesters
+          semesterNum="9"/>
+      <semesters
           semesterNum="10"
           season="spring"/>
     </specializations>
     <semesters
-        semesterNum="2"
-        season="spring"/>
-    <semesters
         semesterNum="1">
       <courseGroups
-          name="Mandatory courses"
-          courses="//@courses.0 //@courses.1 //@courses.2"/>
+          courses="//@courses.0 //@courses.4 //@courses.5 //@courses.6"/>
     </semesters>
     <semesters
-        semesterNum="3"/>
+        semesterNum="2"
+        season="spring">
+      <courseGroups
+          name="Mandatory courses"
+          courses="//@courses.0 //@courses.7 //@courses.8 //@courses.9"/>
+    </semesters>
+    <semesters
+        semesterNum="3">
+      <courseGroups
+          courses="//@courses.10 //@courses.11 //@courses.12 //@courses.13"/>
+    </semesters>
     <semesters
         semesterNum="4"
-        season="spring"/>
+        season="spring">
+      <courseGroups
+          courses="//@courses.14 //@courses.15 //@courses.16 //@courses.17"/>
+    </semesters>
   </programs>
   <courses name="Objektorientert programmering"
       code="TDT4100"
@@ -86,11 +137,131 @@
       code="TDT4290"
       credits="15.0"
       level="4"/>
+  <courses name="Exphil"
+      code="EXPH0004"
+      credits="7.5"
+      level="1"/>
+  <courses name="ITGK"
+      code="TDT4110"
+      credits="7.5"
+      level="1"/>
+  <courses name="Matematikk 1"
+      code="TMA4100"
+      credits="7.5"
+      level="1"/>
+  <courses name="Programmeringslab"
+      code="TDT4112"
+      credits="7.5"
+      level="1"/>
+  <courses name="Krets- og digitalteknikk"
+      code="TFE4101"
+      credits="7.5"
+      level="1"/>
+  <courses name="Matematikk 3"
+      code="TMA4115"
+      credits="7.5"
+      level="1"/>
+  <courses name="Datateknologi, programmeringsprosjekt"
+      code="TDT4113"
+      credits="7.5"
+      level="2"/>
+  <courses name="Algoritmer og datastrukturer"
+      code="TDT4120"
+      credits="7.5"
+      level="2"/>
+  <courses name="Datamaskiner og digitalteknikk"
+      code="TDT4160"
+      credits="7.5"
+      level="2"/>
+  <courses name="Statistikk"
+      code="TMA4240"
+      credits="7.5"
+      level="2"/>
+  <courses name="Programvareutvikling"
+      code="TDT4140"
+      credits="7.5"
+      level="2"/>
+  <courses name="Datamod og databaser"
+      code="TDT4145"
+      credits="7.5"
+      level="2"/>
+  <courses name="MMI"
+      code="4180"
+      credits="7.5"
+      level="2"/>
+  <courses name="KTN"
+      code="TTM4100"
+      credits="7.5"
+      level="2"/>
+  <courses name="Intro til AI"
+      code="TDT4136"
+      credits="7.5"
+      level="3"/>
+  <courses name="Informasjonssystemer"
+      code="TDT4175"
+      credits="7.5"
+      level="3"/>
+  <courses name="Matematikk 4D"
+      code="TMA4135"
+      credits="7.5"
+      level="3"/>
+  <courses name="Webutvikling"
+      code="IT2810"
+      credits="7.5"
+      level="3"/>
+  <courses name="OS"
+      code="TDT4240"
+      credits="7.5"
+      level="3"/>
+  <courses name="Programvarearkitektur"
+      code="TDT4240"
+      credits="7.5"
+      level="3"/>
+  <courses name="Fysikk"
+      code="TFY4125"
+      credits="7.5"
+      level="3"/>
+  <courses name="Teknologiledelse"
+      code="TIØ4258"
+      credits="7.5"
+      level="3"/>
+  <courses name="Arkitektur som teknologisk praksis"
+      code="AAR4250"
+      credits="7.5"
+      level="4"/>
+  <courses name="Bioteknologi og etikk"
+      code="FI3107"
+      credits="7.5"
+      level="4"/>
+  <courses name="Programvaresikkerhet"
+      code="TDT4237"
+      credits="7.5"
+      level="4"/>
+  <courses name="Faste stoffers fysikk"
+      code="TFY4220"
+      credits="7.5"
+      level="4"/>
+  <courses name="EIT - Grønne bygg"
+      code="BEIT4014"
+      credits="7.5"
+      level="4"/>
+  <courses name="Datateknologi, fordypningsprosjekt"
+      code="TDT4501"
+      credits="15.0"
+      level="5"/>
+  <courses name="Datateknologi, fordypningsemne"
+      code="TDT4506"
+      credits="7.5"
+      level="5"/>
+  <courses name="Datateknologi, masteroppgave"
+      code="TDT4900"
+      credits="30.0"
+      level="5"/>
   <students
       name="Siri Nilsen"
       program="//@programs.0">
     <studyPlan
-        semesters="//@programs.0/@semesters.0 //@programs.0/@semesters.1 //@programs.0/@semesters.2 //@programs.0/@semesters.3">
+        semesters="//@programs.0/@semesters.1 //@programs.0/@semesters.0 //@programs.0/@semesters.2 //@programs.0/@semesters.3">
       <courseAllocation
           grade="C"
           course="//@courses.0"/>

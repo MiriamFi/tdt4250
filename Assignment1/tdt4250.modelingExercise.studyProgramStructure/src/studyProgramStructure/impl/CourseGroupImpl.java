@@ -33,7 +33,6 @@ import studyProgramStructure.StudyProgramStructurePackage;
  * </p>
  * <ul>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getName <em>Name</em>}</li>
- *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getNumOfNeededCourses <em>Num Of Needed Courses</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getSemester <em>Semester</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getStatus <em>Status</em>}</li>
@@ -61,26 +60,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getNumOfNeededCourses() <em>Num Of Needed Courses</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumOfNeededCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int NUM_OF_NEEDED_COURSES_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getNumOfNeededCourses() <em>Num Of Needed Courses</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumOfNeededCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected int numOfNeededCourses = NUM_OF_NEEDED_COURSES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCourses() <em>Courses</em>}' reference list.
@@ -152,29 +131,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getNumOfNeededCourses() {
-		return numOfNeededCourses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNumOfNeededCourses(int newNumOfNeededCourses) {
-		int oldNumOfNeededCourses = numOfNeededCourses;
-		numOfNeededCourses = newNumOfNeededCourses;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES, oldNumOfNeededCourses, numOfNeededCourses));
 	}
 
 	/**
@@ -310,8 +266,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				return getName();
-			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
-				return getNumOfNeededCourses();
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				return getSemester();
 			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
@@ -333,9 +287,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				setName((String)newValue);
-				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
-				setNumOfNeededCourses((Integer)newValue);
 				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				setSemester((Semester)newValue);
@@ -362,9 +313,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
-				setNumOfNeededCourses(NUM_OF_NEEDED_COURSES_EDEFAULT);
-				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				setSemester((Semester)null);
 				return;
@@ -388,8 +336,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
-				return numOfNeededCourses != NUM_OF_NEEDED_COURSES_EDEFAULT;
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				return getSemester() != null;
 			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
@@ -412,8 +358,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", numOfNeededCourses: ");
-		result.append(numOfNeededCourses);
 		result.append(", status: ");
 		result.append(status);
 		result.append(')');

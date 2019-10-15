@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import studyProgramStructure.Program;
@@ -112,16 +113,6 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Semester> semesters;
-
-	/**
-	 * The cached value of the '{@link #getProgram() <em>Program</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProgram()
-	 * @generated
-	 * @ordered
-	 */
-	protected Program program;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,15 +274,8 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public Program getProgram() {
-		if (program != null && program.eIsProxy()) {
-			InternalEObject oldProgram = (InternalEObject)program;
-			program = (Program)eResolveProxy(oldProgram);
-			if (program != oldProgram) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StudyProgramStructurePackage.SPECIALIZATION__PROGRAM, oldProgram, program));
-			}
-		}
-		return program;
+		if (eContainerFeatureID() != StudyProgramStructurePackage.SPECIALIZATION__PROGRAM) return null;
+		return (Program)eInternalContainer();
 	}
 
 	/**
@@ -299,8 +283,9 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Program basicGetProgram() {
-		return program;
+	public NotificationChain basicSetProgram(Program newProgram, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProgram, StudyProgramStructurePackage.SPECIALIZATION__PROGRAM, msgs);
+		return msgs;
 	}
 
 	/**
@@ -310,10 +295,19 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public void setProgram(Program newProgram) {
-		Program oldProgram = program;
-		program = newProgram;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.SPECIALIZATION__PROGRAM, oldProgram, program));
+		if (newProgram != eInternalContainer() || (eContainerFeatureID() != StudyProgramStructurePackage.SPECIALIZATION__PROGRAM && newProgram != null)) {
+			if (EcoreUtil.isAncestor(this, newProgram))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProgram != null)
+				msgs = ((InternalEObject)newProgram).eInverseAdd(this, StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS, Program.class, msgs);
+			msgs = basicSetProgram(newProgram, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.SPECIALIZATION__PROGRAM, newProgram, newProgram));
 	}
 
 	/**
@@ -333,6 +327,10 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 				return basicSetBaseSpecialization((Specialization)otherEnd, msgs);
 			case StudyProgramStructurePackage.SPECIALIZATION__SEMESTERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemesters()).basicAdd(otherEnd, msgs);
+			case StudyProgramStructurePackage.SPECIALIZATION__PROGRAM:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProgram((Program)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -351,8 +349,24 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 				return basicSetBaseSpecialization(null, msgs);
 			case StudyProgramStructurePackage.SPECIALIZATION__SEMESTERS:
 				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
+			case StudyProgramStructurePackage.SPECIALIZATION__PROGRAM:
+				return basicSetProgram(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case StudyProgramStructurePackage.SPECIALIZATION__PROGRAM:
+				return eInternalContainer().eInverseRemove(this, StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS, Program.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -375,8 +389,7 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 			case StudyProgramStructurePackage.SPECIALIZATION__SEMESTERS:
 				return getSemesters();
 			case StudyProgramStructurePackage.SPECIALIZATION__PROGRAM:
-				if (resolve) return getProgram();
-				return basicGetProgram();
+				return getProgram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -463,7 +476,7 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 			case StudyProgramStructurePackage.SPECIALIZATION__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
 			case StudyProgramStructurePackage.SPECIALIZATION__PROGRAM:
-				return program != null;
+				return getProgram() != null;
 		}
 		return super.eIsSet(featureID);
 	}

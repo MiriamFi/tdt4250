@@ -466,18 +466,8 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCourseGroup_NumOfNeededCourses() {
-		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getCourseGroup_Semester() {
-		return (EReference)courseGroupEClass.getEStructuralFeatures().get(2);
+		return (EReference)courseGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -487,7 +477,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 	 */
 	@Override
 	public EReference getCourseGroup_Courses() {
-		return (EReference)courseGroupEClass.getEStructuralFeatures().get(3);
+		return (EReference)courseGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -497,7 +487,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 	 */
 	@Override
 	public EAttribute getCourseGroup_Status() {
-		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -750,7 +740,6 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 
 		courseGroupEClass = createEClass(COURSE_GROUP);
 		createEAttribute(courseGroupEClass, COURSE_GROUP__NAME);
-		createEAttribute(courseGroupEClass, COURSE_GROUP__NUM_OF_NEEDED_COURSES);
 		createEReference(courseGroupEClass, COURSE_GROUP__SEMESTER);
 		createEReference(courseGroupEClass, COURSE_GROUP__COURSES);
 		createEAttribute(courseGroupEClass, COURSE_GROUP__STATUS);
@@ -821,7 +810,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 1, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_Code(), ecorePackage.getEString(), "code", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_NumOfSemestersForBaseSpecialization(), ecorePackage.getEInt(), "numOfSemestersForBaseSpecialization", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_Specializations(), this.getSpecialization(), null, "specializations", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_Specializations(), this.getSpecialization(), this.getSpecialization_Program(), "specializations", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Semesters(), this.getSemester(), this.getSemester_Program(), "semesters", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_NumOfSemesters(), ecorePackage.getEInt(), "numOfSemesters", null, 1, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -831,7 +820,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		initEReference(getSpecialization_FurtherSpecializations(), this.getSpecialization(), this.getSpecialization_BaseSpecialization(), "furtherSpecializations", null, 0, -1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecialization_BaseSpecialization(), this.getSpecialization(), this.getSpecialization_FurtherSpecializations(), "baseSpecialization", null, 0, 1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecialization_Semesters(), this.getSemester(), this.getSemester_Specialization(), "semesters", null, 0, -1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpecialization_Program(), this.getProgram(), null, "program", null, 1, 1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecialization_Program(), this.getProgram(), this.getProgram_Specializations(), "program", null, 1, 1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_SemesterNum(), ecorePackage.getEInt(), "semesterNum", null, 1, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -841,8 +830,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		initEReference(getSemester_Specialization(), this.getSpecialization(), this.getSpecialization_Semesters(), "specialization", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseGroupEClass, CourseGroup.class, "CourseGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCourseGroup_Name(), ecorePackage.getEString(), "name", null, 1, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseGroup_NumOfNeededCourses(), ecorePackage.getEInt(), "numOfNeededCourses", null, 1, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourseGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourseGroup_Semester(), this.getSemester(), this.getSemester_CourseGroups(), "semester", null, 1, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourseGroup_Courses(), this.getCourse(), null, "courses", null, 0, -1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourseGroup_Status(), this.getCourseStatus(), "status", null, 1, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

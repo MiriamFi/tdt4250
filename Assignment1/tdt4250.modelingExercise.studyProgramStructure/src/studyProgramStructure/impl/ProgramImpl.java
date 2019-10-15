@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -239,7 +238,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	@Override
 	public EList<Specialization> getSpecializations() {
 		if (specializations == null) {
-			specializations = new EObjectContainmentEList<Specialization>(Specialization.class, this, StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS);
+			specializations = new EObjectContainmentWithInverseEList<Specialization>(Specialization.class, this, StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS, StudyProgramStructurePackage.SPECIALIZATION__PROGRAM);
 		}
 		return specializations;
 	}
@@ -289,6 +288,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecializations()).basicAdd(otherEnd, msgs);
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemesters()).basicAdd(otherEnd, msgs);
 		}

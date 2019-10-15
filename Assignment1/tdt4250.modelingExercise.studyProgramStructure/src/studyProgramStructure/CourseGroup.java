@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link studyProgramStructure.CourseGroup#getName <em>Name</em>}</li>
- *   <li>{@link studyProgramStructure.CourseGroup#getNumOfNeededCourses <em>Num Of Needed Courses</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getSemester <em>Semester</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getStatus <em>Status</em>}</li>
@@ -34,7 +33,7 @@ public interface CourseGroup extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();
@@ -48,28 +47,6 @@ public interface CourseGroup extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Num Of Needed Courses</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Num Of Needed Courses</em>' attribute.
-	 * @see #setNumOfNeededCourses(int)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_NumOfNeededCourses()
-	 * @model required="true"
-	 * @generated
-	 */
-	int getNumOfNeededCourses();
-
-	/**
-	 * Sets the value of the '{@link studyProgramStructure.CourseGroup#getNumOfNeededCourses <em>Num Of Needed Courses</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Num Of Needed Courses</em>' attribute.
-	 * @see #getNumOfNeededCourses()
-	 * @generated
-	 */
-	void setNumOfNeededCourses(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Semester</b></em>' container reference.

@@ -203,7 +203,6 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 		
 	}
 
-
 	/**
 	 * The cached validation expression for the baseSpecializationHasEnoughSemesters constraint of '<em>Program</em>'.
 	 * <!-- begin-user-doc -->
