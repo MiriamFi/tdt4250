@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import studyProgramStructure.Program;
 import studyProgramStructure.Semester;
-import studyProgramStructure.Specialisation;
+import studyProgramStructure.Specialization;
 import studyProgramStructure.StudyProgramStructurePackage;
 
 /**
@@ -34,10 +35,10 @@ import studyProgramStructure.StudyProgramStructurePackage;
  * <ul>
  *   <li>{@link studyProgramStructure.impl.ProgramImpl#getName <em>Name</em>}</li>
  *   <li>{@link studyProgramStructure.impl.ProgramImpl#getCode <em>Code</em>}</li>
- *   <li>{@link studyProgramStructure.impl.ProgramImpl#getNumOfSemesters <em>Num Of Semesters</em>}</li>
- *   <li>{@link studyProgramStructure.impl.ProgramImpl#getDegree <em>Degree</em>}</li>
- *   <li>{@link studyProgramStructure.impl.ProgramImpl#getSpecialisations <em>Specialisations</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.ProgramImpl#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.ProgramImpl#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link studyProgramStructure.impl.ProgramImpl#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.ProgramImpl#getNumOfSemesters <em>Num Of Semesters</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,54 +85,54 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	protected String code = CODE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getNumOfSemesters() <em>Num Of Semesters</em>}' attribute list.
+	 * The cached value of the '{@link #getNumOfSemestersForBaseSpecialization() <em>Num Of Semesters For Base Specialization</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumOfSemesters()
+	 * @see #getNumOfSemestersForBaseSpecialization()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> numOfSemesters;
+	protected EList<Integer> numOfSemestersForBaseSpecialization;
 
 	/**
-	 * The default value of the '{@link #getDegree() <em>Degree</em>}' attribute.
+	 * The cached value of the '{@link #getSpecializations() <em>Specializations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDegree()
+	 * @see #getSpecializations()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DEGREE_EDEFAULT = null;
+	protected EList<Specialization> specializations;
 
 	/**
-	 * The cached value of the '{@link #getDegree() <em>Degree</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDegree()
-	 * @generated
-	 * @ordered
-	 */
-	protected String degree = DEGREE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSpecialisations() <em>Specialisations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecialisations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Specialisation> specialisations;
-
-	/**
-	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference.
+	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSemesters()
 	 * @generated
 	 * @ordered
 	 */
-	protected Semester semesters;
+	protected EList<Semester> semesters;
+
+	/**
+	 * The default value of the '{@link #getNumOfSemesters() <em>Num Of Semesters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumOfSemesters()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NUM_OF_SEMESTERS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getNumOfSemesters() <em>Num Of Semesters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumOfSemesters()
+	 * @generated
+	 * @ordered
+	 */
+	protected int numOfSemesters = NUM_OF_SEMESTERS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,10 +205,46 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public EList<Integer> getNumOfSemesters() {
-		if (numOfSemesters == null) {
-			numOfSemesters = new EDataTypeUniqueEList<Integer>(Integer.class, this, StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS);
+	public EList<Integer> getNumOfSemestersForBaseSpecialization() {
+		if (numOfSemestersForBaseSpecialization == null) {
+			numOfSemestersForBaseSpecialization = new EDataTypeUniqueEList<Integer>(Integer.class, this, StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION);
 		}
+		return numOfSemestersForBaseSpecialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Specialization> getSpecializations() {
+		if (specializations == null) {
+			specializations = new EObjectContainmentEList<Specialization>(Specialization.class, this, StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS);
+		}
+		return specializations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Semester> getSemesters() {
+		if (semesters == null) {
+			semesters = new EObjectContainmentWithInverseEList<Semester>(Semester.class, this, StudyProgramStructurePackage.PROGRAM__SEMESTERS, StudyProgramStructurePackage.SEMESTER__PROGRAM);
+		}
+		return semesters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getNumOfSemesters() {
 		return numOfSemesters;
 	}
 
@@ -217,79 +254,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public String getDegree() {
-		return degree;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDegree(String newDegree) {
-		String oldDegree = degree;
-		degree = newDegree;
+	public void setNumOfSemesters(int newNumOfSemesters) {
+		int oldNumOfSemesters = numOfSemesters;
+		numOfSemesters = newNumOfSemesters;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__DEGREE, oldDegree, degree));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Specialisation> getSpecialisations() {
-		if (specialisations == null) {
-			specialisations = new EObjectContainmentWithInverseEList<Specialisation>(Specialisation.class, this, StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS, StudyProgramStructurePackage.SPECIALISATION__PROGRAM);
-		}
-		return specialisations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Semester getSemesters() {
-		return semesters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSemesters(Semester newSemesters, NotificationChain msgs) {
-		Semester oldSemesters = semesters;
-		semesters = newSemesters;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__SEMESTERS, oldSemesters, newSemesters);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSemesters(Semester newSemesters) {
-		if (newSemesters != semesters) {
-			NotificationChain msgs = null;
-			if (semesters != null)
-				msgs = ((InternalEObject)semesters).eInverseRemove(this, StudyProgramStructurePackage.SEMESTER__PROGRAM, Semester.class, msgs);
-			if (newSemesters != null)
-				msgs = ((InternalEObject)newSemesters).eInverseAdd(this, StudyProgramStructurePackage.SEMESTER__PROGRAM, Semester.class, msgs);
-			msgs = basicSetSemesters(newSemesters, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__SEMESTERS, newSemesters, newSemesters));
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS, oldNumOfSemesters, numOfSemesters));
 	}
 
 	/**
@@ -301,12 +270,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecialisations()).basicAdd(otherEnd, msgs);
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
-				if (semesters != null)
-					msgs = ((InternalEObject)semesters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StudyProgramStructurePackage.PROGRAM__SEMESTERS, null, msgs);
-				return basicSetSemesters((Semester)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemesters()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -319,10 +284,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS:
-				return ((InternalEList<?>)getSpecialisations()).basicRemove(otherEnd, msgs);
+			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
+				return ((InternalEList<?>)getSpecializations()).basicRemove(otherEnd, msgs);
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
-				return basicSetSemesters(null, msgs);
+				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -339,14 +304,14 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return getName();
 			case StudyProgramStructurePackage.PROGRAM__CODE:
 				return getCode();
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				return getNumOfSemesters();
-			case StudyProgramStructurePackage.PROGRAM__DEGREE:
-				return getDegree();
-			case StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS:
-				return getSpecialisations();
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
+				return getNumOfSemestersForBaseSpecialization();
+			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
+				return getSpecializations();
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
 				return getSemesters();
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
+				return getNumOfSemesters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -366,19 +331,20 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case StudyProgramStructurePackage.PROGRAM__CODE:
 				setCode((String)newValue);
 				return;
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				getNumOfSemesters().clear();
-				getNumOfSemesters().addAll((Collection<? extends Integer>)newValue);
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
+				getNumOfSemestersForBaseSpecialization().clear();
+				getNumOfSemestersForBaseSpecialization().addAll((Collection<? extends Integer>)newValue);
 				return;
-			case StudyProgramStructurePackage.PROGRAM__DEGREE:
-				setDegree((String)newValue);
-				return;
-			case StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS:
-				getSpecialisations().clear();
-				getSpecialisations().addAll((Collection<? extends Specialisation>)newValue);
+			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
+				getSpecializations().clear();
+				getSpecializations().addAll((Collection<? extends Specialization>)newValue);
 				return;
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
-				setSemesters((Semester)newValue);
+				getSemesters().clear();
+				getSemesters().addAll((Collection<? extends Semester>)newValue);
+				return;
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
+				setNumOfSemesters((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -398,17 +364,17 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case StudyProgramStructurePackage.PROGRAM__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				getNumOfSemesters().clear();
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
+				getNumOfSemestersForBaseSpecialization().clear();
 				return;
-			case StudyProgramStructurePackage.PROGRAM__DEGREE:
-				setDegree(DEGREE_EDEFAULT);
-				return;
-			case StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS:
-				getSpecialisations().clear();
+			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
+				getSpecializations().clear();
 				return;
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
-				setSemesters((Semester)null);
+				getSemesters().clear();
+				return;
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
+				setNumOfSemesters(NUM_OF_SEMESTERS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -426,14 +392,14 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case StudyProgramStructurePackage.PROGRAM__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				return numOfSemesters != null && !numOfSemesters.isEmpty();
-			case StudyProgramStructurePackage.PROGRAM__DEGREE:
-				return DEGREE_EDEFAULT == null ? degree != null : !DEGREE_EDEFAULT.equals(degree);
-			case StudyProgramStructurePackage.PROGRAM__SPECIALISATIONS:
-				return specialisations != null && !specialisations.isEmpty();
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
+				return numOfSemestersForBaseSpecialization != null && !numOfSemestersForBaseSpecialization.isEmpty();
+			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
+				return specializations != null && !specializations.isEmpty();
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
-				return semesters != null;
+				return semesters != null && !semesters.isEmpty();
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
+				return numOfSemesters != NUM_OF_SEMESTERS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -452,10 +418,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 		result.append(name);
 		result.append(", code: ");
 		result.append(code);
+		result.append(", numOfSemestersForBaseSpecialization: ");
+		result.append(numOfSemestersForBaseSpecialization);
 		result.append(", numOfSemesters: ");
 		result.append(numOfSemesters);
-		result.append(", degree: ");
-		result.append(degree);
 		result.append(')');
 		return result.toString();
 	}

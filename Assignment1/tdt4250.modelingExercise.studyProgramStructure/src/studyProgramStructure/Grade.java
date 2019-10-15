@@ -10,106 +10,175 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>degrees</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Grade</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see studyProgramStructure.StudyProgramStructurePackage#getdegrees()
+ * @see studyProgramStructure.StudyProgramStructurePackage#getGrade()
  * @model
  * @generated
  */
-public enum degrees implements Enumerator {
+public enum Grade implements Enumerator {
 	/**
-	 * The '<em><b>Bachelor</b></em>' literal object.
+	 * The '<em><b>A</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BACHELOR_VALUE
+	 * @see #A_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BACHELOR(0, "bachelor", "bachelor"), /**
-	 * The '<em><b>Master</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MASTER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MASTER(1, "master", "master"), /**
-	 * The '<em><b>Integrated Master</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INTEGRATED_MASTER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INTEGRATED_MASTER(2, "integratedMaster", "integratedMaster")
-	;
+	A(5, "A", "A"),
 
 	/**
-	 * The '<em><b>Bachelor</b></em>' literal value.
+	 * The '<em><b>B</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BACHELOR
-	 * @model name="bachelor"
+	 * @see #B_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BACHELOR_VALUE = 0;
-
-/**
-	 * The '<em><b>Master</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MASTER
-	 * @model name="master"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int MASTER_VALUE = 1;
-
-/**
-	 * The '<em><b>Integrated Master</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INTEGRATED_MASTER
-	 * @model name="integratedMaster"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int INTEGRATED_MASTER_VALUE = 2;
+	B(4, "B", "B"),
 
 	/**
-	 * An array of all the '<em><b>degrees</b></em>' enumerators.
+	 * The '<em><b>C</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #C_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	C(3, "C", "C"),
+
+	/**
+	 * The '<em><b>D</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #D_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	D(2, "D", "D"),
+
+	/**
+	 * The '<em><b>E</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #E_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	E(1, "E", "E"),
+
+	/**
+	 * The '<em><b>F</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #F_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	F(0, "F", "F");
+
+	/**
+	 * The '<em><b>A</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #A
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int A_VALUE = 5;
+
+	/**
+	 * The '<em><b>B</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #B
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int B_VALUE = 4;
+
+	/**
+	 * The '<em><b>C</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #C
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int C_VALUE = 3;
+
+	/**
+	 * The '<em><b>D</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #D
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int D_VALUE = 2;
+
+	/**
+	 * The '<em><b>E</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #E
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int E_VALUE = 1;
+
+	/**
+	 * The '<em><b>F</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #F
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int F_VALUE = 0;
+
+	/**
+	 * An array of all the '<em><b>Grade</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final degrees[] VALUES_ARRAY =
-		new degrees[] {
-			BACHELOR,
-			MASTER,
-			INTEGRATED_MASTER,
+	private static final Grade[] VALUES_ARRAY =
+		new Grade[] {
+			A,
+			B,
+			C,
+			D,
+			E,
+			F,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>degrees</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Grade</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<degrees> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<Grade> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>degrees</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Grade</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static degrees get(String literal) {
+	public static Grade get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			degrees result = VALUES_ARRAY[i];
+			Grade result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -118,16 +187,16 @@ public enum degrees implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>degrees</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Grade</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static degrees getByName(String name) {
+	public static Grade getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			degrees result = VALUES_ARRAY[i];
+			Grade result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -136,18 +205,21 @@ public enum degrees implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>degrees</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Grade</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static degrees get(int value) {
+	public static Grade get(int value) {
 		switch (value) {
-			case BACHELOR_VALUE: return BACHELOR;
-			case MASTER_VALUE: return MASTER;
-			case INTEGRATED_MASTER_VALUE: return INTEGRATED_MASTER;
+			case A_VALUE: return A;
+			case B_VALUE: return B;
+			case C_VALUE: return C;
+			case D_VALUE: return D;
+			case E_VALUE: return E;
+			case F_VALUE: return F;
 		}
 		return null;
 	}
@@ -179,7 +251,7 @@ public enum degrees implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private degrees(int value, String name, String literal) {
+	private Grade(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -226,4 +298,4 @@ public enum degrees implements Enumerator {
 		return literal;
 	}
 	
-} //degrees
+} //Grade

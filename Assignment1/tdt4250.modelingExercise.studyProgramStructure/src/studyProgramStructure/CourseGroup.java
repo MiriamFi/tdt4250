@@ -16,9 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link studyProgramStructure.CourseGroup#getName <em>Name</em>}</li>
- *   <li>{@link studyProgramStructure.CourseGroup#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getNumOfNeededCourses <em>Num Of Needed Courses</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getSemester <em>Semester</em>}</li>
+ *   <li>{@link studyProgramStructure.CourseGroup#getCourses <em>Courses</em>}</li>
+ *   <li>{@link studyProgramStructure.CourseGroup#getStatus <em>Status</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getLevelRestriction <em>Level Restriction</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#getField <em>Field</em>}</li>
  *   <li>{@link studyProgramStructure.CourseGroup#isFromField <em>From Field</em>}</li>
@@ -37,7 +38,7 @@ public interface CourseGroup extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -53,25 +54,13 @@ public interface CourseGroup extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Courses</b></em>' containment reference list.
-	 * The list contents are of type {@link studyProgramStructure.SemesterCourse}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Courses</em>' containment reference list.
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_Courses()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<SemesterCourse> getCourses();
-
-	/**
 	 * Returns the value of the '<em><b>Num Of Needed Courses</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Num Of Needed Courses</em>' attribute.
 	 * @see #setNumOfNeededCourses(int)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_NumOfNeededCourses()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getNumOfNeededCourses();
@@ -95,7 +84,7 @@ public interface CourseGroup extends EObject {
 	 * @see #setSemester(Semester)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_Semester()
 	 * @see studyProgramStructure.Semester#getCourseGroups
-	 * @model opposite="courseGroups" transient="false"
+	 * @model opposite="courseGroups" required="true" transient="false"
 	 * @generated
 	 */
 	Semester getSemester();
@@ -109,6 +98,43 @@ public interface CourseGroup extends EObject {
 	 * @generated
 	 */
 	void setSemester(Semester value);
+
+	/**
+	 * Returns the value of the '<em><b>Courses</b></em>' reference list.
+	 * The list contents are of type {@link studyProgramStructure.Course}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Courses</em>' reference list.
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_Courses()
+	 * @model
+	 * @generated
+	 */
+	EList<Course> getCourses();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * The literals are from the enumeration {@link studyProgramStructure.CourseStatus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see studyProgramStructure.CourseStatus
+	 * @see #setStatus(CourseStatus)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourseGroup_Status()
+	 * @model required="true"
+	 * @generated
+	 */
+	CourseStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link studyProgramStructure.CourseGroup#getStatus <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' attribute.
+	 * @see studyProgramStructure.CourseStatus
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(CourseStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Level Restriction</b></em>' attribute.

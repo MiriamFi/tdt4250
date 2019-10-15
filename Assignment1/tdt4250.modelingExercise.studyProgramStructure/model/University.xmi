@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tdt4250.modelingExercise.studyProgramStructure:University
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tdt4250.modelingExercise.studyProgramStructure="http://tdt4250/modelingExercise/studyProgramStructure"
+    xsi:schemaLocation="http://tdt4250/modelingExercise/studyProgramStructure studyProgramStructure.ecore">
+  <programs
+      name="Datateknologi"
+      code="MTDT"
+      numOfSemestersForBaseSpecialization="4"
+      numOfSemesters="10">
+    <specializations
+        name="Programvaresystemer"
+        numOfSemesters="2"
+        program="//@programs.0"/>
+    <semesters
+        semesterNum="2"
+        season="spring"/>
+  </programs>
+  <courses name="Objektorientert programmering"
+      code="TDT4100"
+      credits="7.5"
+      level="1"/>
+  <students
+      name="Siri Nilsen"
+      program="//@programs.0">
+    <studyPlan
+        semesters="//@programs.0/@semesters.0">
+      <courseAllocation
+          grade="C"
+          course="//@courses.0"/>
+    </studyPlan>
+  </students>
+</tdt4250.modelingExercise.studyProgramStructure:University>

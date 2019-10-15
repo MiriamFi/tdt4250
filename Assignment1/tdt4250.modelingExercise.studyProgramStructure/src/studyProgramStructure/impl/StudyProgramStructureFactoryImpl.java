@@ -59,11 +59,13 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 		switch (eClass.getClassifierID()) {
 			case StudyProgramStructurePackage.COURSE: return createCourse();
 			case StudyProgramStructurePackage.PROGRAM: return createProgram();
-			case StudyProgramStructurePackage.SPECIALISATION: return createSpecialisation();
+			case StudyProgramStructurePackage.SPECIALIZATION: return createSpecialization();
 			case StudyProgramStructurePackage.SEMESTER: return createSemester();
 			case StudyProgramStructurePackage.COURSE_GROUP: return createCourseGroup();
+			case StudyProgramStructurePackage.UNIVERSITY: return createUniversity();
+			case StudyProgramStructurePackage.STUDENT: return createStudent();
 			case StudyProgramStructurePackage.STUDY_PLAN: return createStudyPlan();
-			case StudyProgramStructurePackage.SEMESTER_COURSE: return createSemesterCourse();
+			case StudyProgramStructurePackage.COURSE_ALLOCATION: return createCourseAllocation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -77,8 +79,12 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case StudyProgramStructurePackage.DEGREES:
-				return createdegreesFromString(eDataType, initialValue);
+			case StudyProgramStructurePackage.COURSE_STATUS:
+				return createCourseStatusFromString(eDataType, initialValue);
+			case StudyProgramStructurePackage.GRADE:
+				return createGradeFromString(eDataType, initialValue);
+			case StudyProgramStructurePackage.SEASON:
+				return createSeasonFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -92,8 +98,12 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case StudyProgramStructurePackage.DEGREES:
-				return convertdegreesToString(eDataType, instanceValue);
+			case StudyProgramStructurePackage.COURSE_STATUS:
+				return convertCourseStatusToString(eDataType, instanceValue);
+			case StudyProgramStructurePackage.GRADE:
+				return convertGradeToString(eDataType, instanceValue);
+			case StudyProgramStructurePackage.SEASON:
+				return convertSeasonToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -127,9 +137,9 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	 * @generated
 	 */
 	@Override
-	public Specialisation createSpecialisation() {
-		SpecialisationImpl specialisation = new SpecialisationImpl();
-		return specialisation;
+	public Specialization createSpecialization() {
+		SpecializationImpl specialization = new SpecializationImpl();
+		return specialization;
 	}
 
 	/**
@@ -160,6 +170,28 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	 * @generated
 	 */
 	@Override
+	public University createUniversity() {
+		UniversityImpl university = new UniversityImpl();
+		return university;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Student createStudent() {
+		StudentImpl student = new StudentImpl();
+		return student;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public StudyPlan createStudyPlan() {
 		StudyPlanImpl studyPlan = new StudyPlanImpl();
 		return studyPlan;
@@ -171,9 +203,9 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	 * @generated
 	 */
 	@Override
-	public SemesterCourse createSemesterCourse() {
-		SemesterCourseImpl semesterCourse = new SemesterCourseImpl();
-		return semesterCourse;
+	public CourseAllocation createCourseAllocation() {
+		CourseAllocationImpl courseAllocation = new CourseAllocationImpl();
+		return courseAllocation;
 	}
 
 	/**
@@ -181,8 +213,8 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public degrees createdegreesFromString(EDataType eDataType, String initialValue) {
-		degrees result = degrees.get(initialValue);
+	public CourseStatus createCourseStatusFromString(EDataType eDataType, String initialValue) {
+		CourseStatus result = CourseStatus.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -192,7 +224,47 @@ public class StudyProgramStructureFactoryImpl extends EFactoryImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertdegreesToString(EDataType eDataType, Object instanceValue) {
+	public String convertCourseStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Grade createGradeFromString(EDataType eDataType, String initialValue) {
+		Grade result = Grade.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGradeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Season createSeasonFromString(EDataType eDataType, String initialValue) {
+		Season result = Season.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSeasonToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

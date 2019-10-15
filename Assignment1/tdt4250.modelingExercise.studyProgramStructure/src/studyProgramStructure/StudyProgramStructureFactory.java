@@ -40,13 +40,13 @@ public interface StudyProgramStructureFactory extends EFactory {
 	Program createProgram();
 
 	/**
-	 * Returns a new object of class '<em>Specialisation</em>'.
+	 * Returns a new object of class '<em>Specialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specialisation</em>'.
+	 * @return a new object of class '<em>Specialization</em>'.
 	 * @generated
 	 */
-	Specialisation createSpecialisation();
+	Specialization createSpecialization();
 
 	/**
 	 * Returns a new object of class '<em>Semester</em>'.
@@ -67,6 +67,24 @@ public interface StudyProgramStructureFactory extends EFactory {
 	CourseGroup createCourseGroup();
 
 	/**
+	 * Returns a new object of class '<em>University</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>University</em>'.
+	 * @generated
+	 */
+	University createUniversity();
+
+	/**
+	 * Returns a new object of class '<em>Student</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Student</em>'.
+	 * @generated
+	 */
+	Student createStudent();
+
+	/**
 	 * Returns a new object of class '<em>Study Plan</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,13 +94,13 @@ public interface StudyProgramStructureFactory extends EFactory {
 	StudyPlan createStudyPlan();
 
 	/**
-	 * Returns a new object of class '<em>Semester Course</em>'.
+	 * Returns a new object of class '<em>Course Allocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Semester Course</em>'.
+	 * @return a new object of class '<em>Course Allocation</em>'.
 	 * @generated
 	 */
-	SemesterCourse createSemesterCourse();
+	CourseAllocation createCourseAllocation();
 
 	/**
 	 * Returns the package supported by this factory.

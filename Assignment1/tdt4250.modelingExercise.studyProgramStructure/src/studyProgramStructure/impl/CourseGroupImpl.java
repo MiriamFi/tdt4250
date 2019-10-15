@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
+import studyProgramStructure.Course;
 import studyProgramStructure.CourseGroup;
+import studyProgramStructure.CourseStatus;
 import studyProgramStructure.Semester;
-import studyProgramStructure.SemesterCourse;
 import studyProgramStructure.StudyProgramStructurePackage;
 
 /**
@@ -33,9 +33,10 @@ import studyProgramStructure.StudyProgramStructurePackage;
  * </p>
  * <ul>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getName <em>Name</em>}</li>
- *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getNumOfNeededCourses <em>Num Of Needed Courses</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getSemester <em>Semester</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getCourses <em>Courses</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getLevelRestriction <em>Level Restriction</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getField <em>Field</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#isFromField <em>From Field</em>}</li>
@@ -65,16 +66,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCourses() <em>Courses</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SemesterCourse> courses;
-
-	/**
 	 * The default value of the '{@link #getNumOfNeededCourses() <em>Num Of Needed Courses</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,6 +84,36 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @ordered
 	 */
 	protected int numOfNeededCourses = NUM_OF_NEEDED_COURSES_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCourses() <em>Courses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCourses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Course> courses;
+
+	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CourseStatus STATUS_EDEFAULT = CourseStatus.MANDATORY;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected CourseStatus status = STATUS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLevelRestriction() <em>Level Restriction</em>}' attribute.
@@ -202,19 +223,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @generated
 	 */
 	@Override
-	public EList<SemesterCourse> getCourses() {
-		if (courses == null) {
-			courses = new EObjectContainmentEList<SemesterCourse>(SemesterCourse.class, this, StudyProgramStructurePackage.COURSE_GROUP__COURSES);
-		}
-		return courses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public int getNumOfNeededCourses() {
 		return numOfNeededCourses;
 	}
@@ -273,6 +281,42 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__SEMESTER, newSemester, newSemester));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Course> getCourses() {
+		if (courses == null) {
+			courses = new EObjectResolvingEList<Course>(Course.class, this, StudyProgramStructurePackage.COURSE_GROUP__COURSES);
+		}
+		return courses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CourseStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setStatus(CourseStatus newStatus) {
+		CourseStatus oldStatus = status;
+		status = newStatus == null ? STATUS_EDEFAULT : newStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__STATUS, oldStatus, status));
 	}
 
 	/**
@@ -368,8 +412,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
-				return ((InternalEList<?>)getCourses()).basicRemove(otherEnd, msgs);
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				return basicSetSemester(null, msgs);
 		}
@@ -400,12 +442,14 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				return getName();
-			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
-				return getCourses();
 			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
 				return getNumOfNeededCourses();
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				return getSemester();
+			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
+				return getCourses();
+			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
+				return getStatus();
 			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
 				return getLevelRestriction();
 			case StudyProgramStructurePackage.COURSE_GROUP__FIELD:
@@ -428,15 +472,18 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				setName((String)newValue);
 				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
-				getCourses().clear();
-				getCourses().addAll((Collection<? extends SemesterCourse>)newValue);
-				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
 				setNumOfNeededCourses((Integer)newValue);
 				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				setSemester((Semester)newValue);
+				return;
+			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
+				getCourses().clear();
+				getCourses().addAll((Collection<? extends Course>)newValue);
+				return;
+			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
+				setStatus((CourseStatus)newValue);
 				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
 				setLevelRestriction((Integer)newValue);
@@ -462,14 +509,17 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
-				getCourses().clear();
-				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
 				setNumOfNeededCourses(NUM_OF_NEEDED_COURSES_EDEFAULT);
 				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				setSemester((Semester)null);
+				return;
+			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
+				getCourses().clear();
+				return;
+			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
+				setStatus(STATUS_EDEFAULT);
 				return;
 			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
 				setLevelRestriction(LEVEL_RESTRICTION_EDEFAULT);
@@ -494,12 +544,14 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgramStructurePackage.COURSE_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
-				return courses != null && !courses.isEmpty();
 			case StudyProgramStructurePackage.COURSE_GROUP__NUM_OF_NEEDED_COURSES:
 				return numOfNeededCourses != NUM_OF_NEEDED_COURSES_EDEFAULT;
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
 				return getSemester() != null;
+			case StudyProgramStructurePackage.COURSE_GROUP__COURSES:
+				return courses != null && !courses.isEmpty();
+			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
+				return status != STATUS_EDEFAULT;
 			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
 				return levelRestriction != LEVEL_RESTRICTION_EDEFAULT;
 			case StudyProgramStructurePackage.COURSE_GROUP__FIELD:
@@ -524,6 +576,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		result.append(name);
 		result.append(", numOfNeededCourses: ");
 		result.append(numOfNeededCourses);
+		result.append(", status: ");
+		result.append(status);
 		result.append(", levelRestriction: ");
 		result.append(levelRestriction);
 		result.append(", field: ");

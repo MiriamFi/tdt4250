@@ -76,8 +76,8 @@ public class StudyProgramStructureAdapterFactory extends AdapterFactoryImpl {
 				return createProgramAdapter();
 			}
 			@Override
-			public Adapter caseSpecialisation(Specialisation object) {
-				return createSpecialisationAdapter();
+			public Adapter caseSpecialization(Specialization object) {
+				return createSpecializationAdapter();
 			}
 			@Override
 			public Adapter caseSemester(Semester object) {
@@ -88,12 +88,20 @@ public class StudyProgramStructureAdapterFactory extends AdapterFactoryImpl {
 				return createCourseGroupAdapter();
 			}
 			@Override
+			public Adapter caseUniversity(University object) {
+				return createUniversityAdapter();
+			}
+			@Override
+			public Adapter caseStudent(Student object) {
+				return createStudentAdapter();
+			}
+			@Override
 			public Adapter caseStudyPlan(StudyPlan object) {
 				return createStudyPlanAdapter();
 			}
 			@Override
-			public Adapter caseSemesterCourse(SemesterCourse object) {
-				return createSemesterCourseAdapter();
+			public Adapter caseCourseAllocation(CourseAllocation object) {
+				return createCourseAllocationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -144,16 +152,16 @@ public class StudyProgramStructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link studyProgramStructure.Specialisation <em>Specialisation</em>}'.
+	 * Creates a new adapter for an object of class '{@link studyProgramStructure.Specialization <em>Specialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see studyProgramStructure.Specialisation
+	 * @see studyProgramStructure.Specialization
 	 * @generated
 	 */
-	public Adapter createSpecialisationAdapter() {
+	public Adapter createSpecializationAdapter() {
 		return null;
 	}
 
@@ -186,6 +194,34 @@ public class StudyProgramStructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link studyProgramStructure.University <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see studyProgramStructure.University
+	 * @generated
+	 */
+	public Adapter createUniversityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link studyProgramStructure.Student <em>Student</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see studyProgramStructure.Student
+	 * @generated
+	 */
+	public Adapter createStudentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link studyProgramStructure.StudyPlan <em>Study Plan</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -200,16 +236,16 @@ public class StudyProgramStructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link studyProgramStructure.SemesterCourse <em>Semester Course</em>}'.
+	 * Creates a new adapter for an object of class '{@link studyProgramStructure.CourseAllocation <em>Course Allocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see studyProgramStructure.SemesterCourse
+	 * @see studyProgramStructure.CourseAllocation
 	 * @generated
 	 */
-	public Adapter createSemesterCourseAdapter() {
+	public Adapter createCourseAllocationAdapter() {
 		return null;
 	}
 

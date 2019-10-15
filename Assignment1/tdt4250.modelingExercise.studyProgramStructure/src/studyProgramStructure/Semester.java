@@ -15,63 +15,64 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link studyProgramStructure.Semester#getYear <em>Year</em>}</li>
+ *   <li>{@link studyProgramStructure.Semester#getSemesterNum <em>Semester Num</em>}</li>
  *   <li>{@link studyProgramStructure.Semester#getSeason <em>Season</em>}</li>
  *   <li>{@link studyProgramStructure.Semester#getCourseGroups <em>Course Groups</em>}</li>
  *   <li>{@link studyProgramStructure.Semester#getProgram <em>Program</em>}</li>
- *   <li>{@link studyProgramStructure.Semester#getSpecialisation <em>Specialisation</em>}</li>
- *   <li>{@link studyProgramStructure.Semester#getNeededCredits <em>Needed Credits</em>}</li>
- *   <li>{@link studyProgramStructure.Semester#getChosenCourses <em>Chosen Courses</em>}</li>
+ *   <li>{@link studyProgramStructure.Semester#getSpecialization <em>Specialization</em>}</li>
  * </ul>
  *
  * @see studyProgramStructure.StudyProgramStructurePackage#getSemester()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='creditsShouldBe30'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='mandatoryCoursesWontExceedMandatoryCredits'"
  * @generated
  */
 public interface Semester extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Year</b></em>' attribute.
+	 * Returns the value of the '<em><b>Semester Num</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Year</em>' attribute.
-	 * @see #setYear(int)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_Year()
-	 * @model
+	 * @return the value of the '<em>Semester Num</em>' attribute.
+	 * @see #setSemesterNum(int)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_SemesterNum()
+	 * @model required="true"
 	 * @generated
 	 */
-	int getYear();
+	int getSemesterNum();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Semester#getYear <em>Year</em>}' attribute.
+	 * Sets the value of the '{@link studyProgramStructure.Semester#getSemesterNum <em>Semester Num</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Year</em>' attribute.
-	 * @see #getYear()
+	 * @param value the new value of the '<em>Semester Num</em>' attribute.
+	 * @see #getSemesterNum()
 	 * @generated
 	 */
-	void setYear(int value);
+	void setSemesterNum(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Season</b></em>' attribute.
+	 * The literals are from the enumeration {@link studyProgramStructure.Season}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Season</em>' attribute.
-	 * @see #setSeason(String)
+	 * @see studyProgramStructure.Season
+	 * @see #setSeason(Season)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_Season()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	String getSeason();
+	Season getSeason();
 
 	/**
 	 * Sets the value of the '{@link studyProgramStructure.Semester#getSeason <em>Season</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Season</em>' attribute.
+	 * @see studyProgramStructure.Season
 	 * @see #getSeason()
 	 * @generated
 	 */
-	void setSeason(String value);
+	void setSeason(Season value);
 
 	/**
 	 * Returns the value of the '<em><b>Course Groups</b></em>' containment reference list.
@@ -112,61 +113,27 @@ public interface Semester extends EObject {
 	void setProgram(Program value);
 
 	/**
-	 * Returns the value of the '<em><b>Specialisation</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link studyProgramStructure.Specialisation#getSemesters <em>Semesters</em>}'.
+	 * Returns the value of the '<em><b>Specialization</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link studyProgramStructure.Specialization#getSemesters <em>Semesters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialisation</em>' container reference.
-	 * @see #setSpecialisation(Specialisation)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_Specialisation()
-	 * @see studyProgramStructure.Specialisation#getSemesters
+	 * @return the value of the '<em>Specialization</em>' container reference.
+	 * @see #setSpecialization(Specialization)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_Specialization()
+	 * @see studyProgramStructure.Specialization#getSemesters
 	 * @model opposite="semesters" transient="false"
 	 * @generated
 	 */
-	Specialisation getSpecialisation();
+	Specialization getSpecialization();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Semester#getSpecialisation <em>Specialisation</em>}' container reference.
+	 * Sets the value of the '{@link studyProgramStructure.Semester#getSpecialization <em>Specialization</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specialisation</em>' container reference.
-	 * @see #getSpecialisation()
+	 * @param value the new value of the '<em>Specialization</em>' container reference.
+	 * @see #getSpecialization()
 	 * @generated
 	 */
-	void setSpecialisation(Specialisation value);
-
-	/**
-	 * Returns the value of the '<em><b>Needed Credits</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Needed Credits</em>' attribute.
-	 * @see #setNeededCredits(float)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_NeededCredits()
-	 * @model
-	 * @generated
-	 */
-	float getNeededCredits();
-
-	/**
-	 * Sets the value of the '{@link studyProgramStructure.Semester#getNeededCredits <em>Needed Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Needed Credits</em>' attribute.
-	 * @see #getNeededCredits()
-	 * @generated
-	 */
-	void setNeededCredits(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Chosen Courses</b></em>' containment reference list.
-	 * The list contents are of type {@link studyProgramStructure.SemesterCourse}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chosen Courses</em>' containment reference list.
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_ChosenCourses()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<SemesterCourse> getChosenCourses();
+	void setSpecialization(Specialization value);
 
 } // Semester

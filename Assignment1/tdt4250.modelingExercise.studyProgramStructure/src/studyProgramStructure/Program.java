@@ -17,14 +17,15 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link studyProgramStructure.Program#getName <em>Name</em>}</li>
  *   <li>{@link studyProgramStructure.Program#getCode <em>Code</em>}</li>
- *   <li>{@link studyProgramStructure.Program#getNumOfSemesters <em>Num Of Semesters</em>}</li>
- *   <li>{@link studyProgramStructure.Program#getDegree <em>Degree</em>}</li>
- *   <li>{@link studyProgramStructure.Program#getSpecialisations <em>Specialisations</em>}</li>
+ *   <li>{@link studyProgramStructure.Program#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}</li>
+ *   <li>{@link studyProgramStructure.Program#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link studyProgramStructure.Program#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link studyProgramStructure.Program#getNumOfSemesters <em>Num Of Semesters</em>}</li>
  * </ul>
  *
  * @see studyProgramStructure.StudyProgramStructurePackage#getProgram()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='programHasEnoughSemesters baseSpecializationHasEnoughSemesters'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 baseSpecializationHasEnoughSemesters='self.semesters -&gt; size() = self.degree.Value'"
  * @generated
  */
 public interface Program extends EObject {
@@ -35,7 +36,7 @@ public interface Program extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -73,75 +74,63 @@ public interface Program extends EObject {
 	void setCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Num Of Semesters</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Integer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Num Of Semesters</em>' attribute list.
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_NumOfSemesters()
+	 * @return the value of the '<em>Num Of Semesters For Base Specialization</em>' attribute list.
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_NumOfSemestersForBaseSpecialization()
 	 * @model
 	 * @generated
 	 */
-	EList<Integer> getNumOfSemesters();
+	EList<Integer> getNumOfSemestersForBaseSpecialization();
 
 	/**
-	 * Returns the value of the '<em><b>Degree</b></em>' attribute.
+	 * Returns the value of the '<em><b>Specializations</b></em>' containment reference list.
+	 * The list contents are of type {@link studyProgramStructure.Specialization}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Degree</em>' attribute.
-	 * @see #setDegree(String)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_Degree()
-	 * @model
+	 * @return the value of the '<em>Specializations</em>' containment reference list.
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_Specializations()
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getDegree();
+	EList<Specialization> getSpecializations();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Program#getDegree <em>Degree</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Degree</em>' attribute.
-	 * @see #getDegree()
-	 * @generated
-	 */
-	void setDegree(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Specialisations</b></em>' containment reference list.
-	 * The list contents are of type {@link studyProgramStructure.Specialisation}.
-	 * It is bidirectional and its opposite is '{@link studyProgramStructure.Specialisation#getProgram <em>Program</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialisations</em>' containment reference list.
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_Specialisations()
-	 * @see studyProgramStructure.Specialisation#getProgram
-	 * @model opposite="program" containment="true"
-	 * @generated
-	 */
-	EList<Specialisation> getSpecialisations();
-
-	/**
-	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
+	 * The list contents are of type {@link studyProgramStructure.Semester}.
 	 * It is bidirectional and its opposite is '{@link studyProgramStructure.Semester#getProgram <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Semesters</em>' containment reference.
-	 * @see #setSemesters(Semester)
+	 * @return the value of the '<em>Semesters</em>' containment reference list.
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_Semesters()
 	 * @see studyProgramStructure.Semester#getProgram
 	 * @model opposite="program" containment="true"
 	 * @generated
 	 */
-	Semester getSemesters();
+	EList<Semester> getSemesters();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Program#getSemesters <em>Semesters</em>}' containment reference.
+	 * Returns the value of the '<em><b>Num Of Semesters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Semesters</em>' containment reference.
-	 * @see #getSemesters()
+	 * @return the value of the '<em>Num Of Semesters</em>' attribute.
+	 * @see #setNumOfSemesters(int)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_NumOfSemesters()
+	 * @model required="true"
 	 * @generated
 	 */
-	void setSemesters(Semester value);
+	int getNumOfSemesters();
+
+	/**
+	 * Sets the value of the '{@link studyProgramStructure.Program#getNumOfSemesters <em>Num Of Semesters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Num Of Semesters</em>' attribute.
+	 * @see #getNumOfSemesters()
+	 * @generated
+	 */
+	void setNumOfSemesters(int value);
 
 } // Program

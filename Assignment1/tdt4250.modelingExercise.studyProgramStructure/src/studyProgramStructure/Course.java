@@ -31,7 +31,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourse_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -53,7 +53,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourse_Code()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getCode();
@@ -75,7 +75,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Credits</em>' attribute.
 	 * @see #setCredits(float)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourse_Credits()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	float getCredits();
@@ -97,7 +97,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Level</em>' attribute.
 	 * @see #setLevel(int)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getCourse_Level()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getLevel();
