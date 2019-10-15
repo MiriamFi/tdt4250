@@ -37,9 +37,6 @@ import studyProgramStructure.StudyProgramStructurePackage;
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getSemester <em>Semester</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getLevelRestriction <em>Level Restriction</em>}</li>
- *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#getField <em>Field</em>}</li>
- *   <li>{@link studyProgramStructure.impl.CourseGroupImpl#isFromField <em>From Field</em>}</li>
  * </ul>
  *
  * @generated
@@ -114,66 +111,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @ordered
 	 */
 	protected CourseStatus status = STATUS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLevelRestriction() <em>Level Restriction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevelRestriction()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int LEVEL_RESTRICTION_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getLevelRestriction() <em>Level Restriction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevelRestriction()
-	 * @generated
-	 * @ordered
-	 */
-	protected int levelRestriction = LEVEL_RESTRICTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getField() <em>Field</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getField()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FIELD_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getField() <em>Field</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getField()
-	 * @generated
-	 * @ordered
-	 */
-	protected String field = FIELD_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isFromField() <em>From Field</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFromField()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean FROM_FIELD_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isFromField() <em>From Field</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFromField()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean fromField = FROM_FIELD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,75 +262,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @generated
 	 */
 	@Override
-	public int getLevelRestriction() {
-		return levelRestriction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setLevelRestriction(int newLevelRestriction) {
-		int oldLevelRestriction = levelRestriction;
-		levelRestriction = newLevelRestriction;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION, oldLevelRestriction, levelRestriction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getField() {
-		return field;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setField(String newField) {
-		String oldField = field;
-		field = newField;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__FIELD, oldField, field));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isFromField() {
-		return fromField;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setFromField(boolean newFromField) {
-		boolean oldFromField = fromField;
-		fromField = newFromField;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.COURSE_GROUP__FROM_FIELD, oldFromField, fromField));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StudyProgramStructurePackage.COURSE_GROUP__SEMESTER:
@@ -450,12 +318,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 				return getCourses();
 			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
 				return getStatus();
-			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
-				return getLevelRestriction();
-			case StudyProgramStructurePackage.COURSE_GROUP__FIELD:
-				return getField();
-			case StudyProgramStructurePackage.COURSE_GROUP__FROM_FIELD:
-				return isFromField();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -485,15 +347,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
 				setStatus((CourseStatus)newValue);
 				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
-				setLevelRestriction((Integer)newValue);
-				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__FIELD:
-				setField((String)newValue);
-				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__FROM_FIELD:
-				setFromField((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -521,15 +374,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
 				setStatus(STATUS_EDEFAULT);
 				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
-				setLevelRestriction(LEVEL_RESTRICTION_EDEFAULT);
-				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__FIELD:
-				setField(FIELD_EDEFAULT);
-				return;
-			case StudyProgramStructurePackage.COURSE_GROUP__FROM_FIELD:
-				setFromField(FROM_FIELD_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -552,12 +396,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 				return courses != null && !courses.isEmpty();
 			case StudyProgramStructurePackage.COURSE_GROUP__STATUS:
 				return status != STATUS_EDEFAULT;
-			case StudyProgramStructurePackage.COURSE_GROUP__LEVEL_RESTRICTION:
-				return levelRestriction != LEVEL_RESTRICTION_EDEFAULT;
-			case StudyProgramStructurePackage.COURSE_GROUP__FIELD:
-				return FIELD_EDEFAULT == null ? field != null : !FIELD_EDEFAULT.equals(field);
-			case StudyProgramStructurePackage.COURSE_GROUP__FROM_FIELD:
-				return fromField != FROM_FIELD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -578,12 +416,6 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		result.append(numOfNeededCourses);
 		result.append(", status: ");
 		result.append(status);
-		result.append(", levelRestriction: ");
-		result.append(levelRestriction);
-		result.append(", field: ");
-		result.append(field);
-		result.append(", fromField: ");
-		result.append(fromField);
 		result.append(')');
 		return result.toString();
 	}

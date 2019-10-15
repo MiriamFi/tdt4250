@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see studyProgramStructure.StudyProgramStructureFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegates='http://www.eclipse.org/acceleo/query/1.0'"
  * @generated
  */
 public interface StudyProgramStructurePackage extends EPackage {
@@ -151,7 +151,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int PROGRAM__CODE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute list.
+	 * The feature id for the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -415,40 +415,13 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int COURSE_GROUP__STATUS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Level Restriction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_GROUP__LEVEL_RESTRICTION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Field</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_GROUP__FIELD = 6;
-
-	/**
-	 * The feature id for the '<em><b>From Field</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_GROUP__FROM_FIELD = 7;
-
-	/**
 	 * The number of structural features of the '<em>Course Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_GROUP_FEATURE_COUNT = 8;
+	int COURSE_GROUP_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Course Group</em>' class.
@@ -797,10 +770,10 @@ public interface StudyProgramStructurePackage extends EPackage {
 	EAttribute getProgram_Code();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link studyProgramStructure.Program#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}'.
+	 * Returns the meta object for the attribute '{@link studyProgramStructure.Program#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Num Of Semesters For Base Specialization</em>'.
+	 * @return the meta object for the attribute '<em>Num Of Semesters For Base Specialization</em>'.
 	 * @see studyProgramStructure.Program#getNumOfSemestersForBaseSpecialization()
 	 * @see #getProgram()
 	 * @generated
@@ -1045,39 +1018,6 @@ public interface StudyProgramStructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCourseGroup_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link studyProgramStructure.CourseGroup#getLevelRestriction <em>Level Restriction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Level Restriction</em>'.
-	 * @see studyProgramStructure.CourseGroup#getLevelRestriction()
-	 * @see #getCourseGroup()
-	 * @generated
-	 */
-	EAttribute getCourseGroup_LevelRestriction();
-
-	/**
-	 * Returns the meta object for the attribute '{@link studyProgramStructure.CourseGroup#getField <em>Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Field</em>'.
-	 * @see studyProgramStructure.CourseGroup#getField()
-	 * @see #getCourseGroup()
-	 * @generated
-	 */
-	EAttribute getCourseGroup_Field();
-
-	/**
-	 * Returns the meta object for the attribute '{@link studyProgramStructure.CourseGroup#isFromField <em>From Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>From Field</em>'.
-	 * @see studyProgramStructure.CourseGroup#isFromField()
-	 * @see #getCourseGroup()
-	 * @generated
-	 */
-	EAttribute getCourseGroup_FromField();
 
 	/**
 	 * Returns the meta object for class '{@link studyProgramStructure.University <em>University</em>}'.
@@ -1373,7 +1313,7 @@ public interface StudyProgramStructurePackage extends EPackage {
 		EAttribute PROGRAM__CODE = eINSTANCE.getProgram_Code();
 
 		/**
-		 * The meta object literal for the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1561,30 +1501,6 @@ public interface StudyProgramStructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COURSE_GROUP__STATUS = eINSTANCE.getCourseGroup_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Level Restriction</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COURSE_GROUP__LEVEL_RESTRICTION = eINSTANCE.getCourseGroup_LevelRestriction();
-
-		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COURSE_GROUP__FIELD = eINSTANCE.getCourseGroup_Field();
-
-		/**
-		 * The meta object literal for the '<em><b>From Field</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COURSE_GROUP__FROM_FIELD = eINSTANCE.getCourseGroup_FromField();
 
 		/**
 		 * The meta object literal for the '{@link studyProgramStructure.impl.UniversityImpl <em>University</em>}' class.

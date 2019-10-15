@@ -2,6 +2,7 @@
  */
 package studyProgramStructure.util;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -148,7 +149,7 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 	 * Validates the programHasEnoughSemesters constraint of '<em>Program</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @NOT generated
+	 * 
 	 */
 	public boolean validateProgram_programHasEnoughSemesters(Program program, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
@@ -158,11 +159,19 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 		try {
 			int semesterSum = 0;
 			semesterSum += program.getSemesters().size();
+			boolean numOfSemestersIsValid = true;
+			ArrayList<Integer> semesterSums = new ArrayList<Integer>();
 			for(Specialization specialization : program.getSpecializations()) {
-				semesterSum += specialization.getNumOfSemesters();
+				if(specialization.getBaseSpecialization() == null) {
+					semesterSums.addAll( this.sumSemestersInSpecializations(semesterSum, new ArrayList<Integer>(), specialization));
+				}
 			}
-			System.out.println("semesterSum: " + semesterSum);
-			if (semesterSum != program.getNumOfSemesters()) {
+			for (int i = 0; i < semesterSums.size(); i++) {
+				if(semesterSums.get(i) != program.getNumOfSemesters()) {
+					numOfSemestersIsValid = false;
+				}
+			}
+			if (!numOfSemestersIsValid) {
 				if (diagnostics != null) {
 					diagnostics.add
 					(createDiagnostic
@@ -181,6 +190,27 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 			return true;
 		}}
 
+	private ArrayList<Integer> sumSemestersInSpecializations(int semesterSum, ArrayList<Integer> semesterSums, Specialization specialization) {
+		if(specialization.getFurtherSpecializations().isEmpty()) {
+			semesterSums.add(semesterSum += specialization.getNumOfSemesters());
+			return semesterSums;
+		}
+
+		for (Specialization furtherSpecialization : specialization.getFurtherSpecializations()) {
+			return this.sumSemestersInSpecializations(semesterSum + specialization.getNumOfSemesters(), semesterSums, furtherSpecialization);
+		}
+		return new ArrayList<Integer>();
+		
+	}
+
+
+	/**
+	 * The cached validation expression for the baseSpecializationHasEnoughSemesters constraint of '<em>Program</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PROGRAM__BASE_SPECIALIZATION_HAS_ENOUGH_SEMESTERS__EEXPRESSION = "self.semesters -> size() == self.numOfSemestersForBaseSpecialization";
 
 	/**
 	 * Validates the baseSpecializationHasEnoughSemesters constraint of '<em>Program</em>'.
@@ -189,25 +219,18 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProgram_baseSpecializationHasEnoughSemesters(Program program, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "baseSpecializationHasEnoughSemesters", getObjectLabel(program, context) },
-						 new Object[] { program },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(StudyProgramStructurePackage.Literals.PROGRAM,
+				 program,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "baseSpecializationHasEnoughSemesters",
+				 PROGRAM__BASE_SPECIALIZATION_HAS_ENOUGH_SEMESTERS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -230,31 +253,32 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the hasEnoughSemesters constraint of '<em>Specialization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String SPECIALIZATION__HAS_ENOUGH_SEMESTERS__EEXPRESSION = "self.semesters -> size() = self.numOfSemesters";
+
+	/**
 	 * Validates the hasEnoughSemesters constraint of '<em>Specialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSpecialization_hasEnoughSemesters(Specialization specialization, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "hasEnoughSemesters", getObjectLabel(specialization, context) },
-						 new Object[] { specialization },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(StudyProgramStructurePackage.Literals.SPECIALIZATION,
+				 specialization,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "hasEnoughSemesters",
+				 SPECIALIZATION__HAS_ENOUGH_SEMESTERS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -280,44 +304,44 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 	 * Validates the mandatoryCoursesWontExceedMandatoryCredits constraint of '<em>Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @NOT generated
+	 * 
 	 */
 	public boolean validateSemester_mandatoryCoursesWontExceedMandatoryCredits(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		
-		float creditSum = 0;
-		float neededCredits = 30;
-		
-		try {
-		for(CourseGroup courseGroup: semester.getCourseGroups()) {
-			if(courseGroup.getStatus().getName().equals("mandatory")) {
-				for (Course course : courseGroup.getCourses()) {
-					creditSum += course.getCredits();
+				// -> specify the condition that violates the constraint
+				// -> verify the diagnostic details, including severity, code, and message
+				// Ensure that you remove @generated or mark it @generated NOT
+				
+				float creditSum = 0;
+				float neededCredits = 30;
+				
+				try {
+				for(CourseGroup courseGroup: semester.getCourseGroups()) {
+					if(courseGroup.getStatus().getName().equals("mandatory")) {
+						for (Course course : courseGroup.getCourses()) {
+							creditSum += course.getCredits();
+						}
+					}
+				}
+				if (creditSum > neededCredits) {
+					if (diagnostics != null) {
+						diagnostics.add
+							(createDiagnostic
+								(Diagnostic.ERROR,
+								 DIAGNOSTIC_SOURCE,
+								 0,
+								 "_UI_GenericConstraint_diagnostic",
+								 new Object[] { "mandatoryCoursesWontExceedMandatoryCredits", getObjectLabel(semester, context) },
+								 new Object[] { semester },
+								 context));
+					}
+					return false;
+				}
+				return true;
+				}catch(NullPointerException e) {
+					return true;
 				}
 			}
-		}
-		if (creditSum > neededCredits) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "mandatoryCoursesWontExceedMandatoryCredits", getObjectLabel(semester, context) },
-						 new Object[] { semester },
-						 context));
-			}
-			return false;
-		}
-		return true;
-		}catch(NullPointerException e) {
-			return true;
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,45 +349,7 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCourseGroup(CourseGroup courseGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(courseGroup, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(courseGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= validateCourseGroup_courseFromLevel(courseGroup, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the courseFromLevel constraint of '<em>Course Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCourseGroup_courseFromLevel(CourseGroup courseGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "courseFromLevel", getObjectLabel(courseGroup, context) },
-						 new Object[] { courseGroup },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return validate_EveryDefaultConstraint(courseGroup, diagnostics, context);
 	}
 
 	/**
@@ -403,6 +389,12 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 		return result;
 	}
 
+	/**
+	 * Validates the semesterIsValid constraint of '<em>Study Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
 	public boolean validateStudyPlan_semesterIsValid(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
@@ -411,10 +403,11 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 		boolean semesterIsValid = true;
 		try {
 			for(Semester semester : studyPlan.getSemesters()){
-				if(semester.getProgram() != studyPlan.getStudent().getProgram()) {
+				
+				if(semester.getProgram() != null && semester.getProgram() != studyPlan.getStudent().getProgram()) {
 					semesterIsValid = false;
 				}
-				if(! studyPlan.getStudent().getSpecializations().contains(semester.getSpecialization())) {
+				if(studyPlan.getStudent().getSpecializations() != null && semester.getSpecialization() != null && !studyPlan.getStudent().getSpecializations().contains(semester.getSpecialization())) {
 					semesterIsValid = false;
 				}
 			}
@@ -437,7 +430,7 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 			return true;
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

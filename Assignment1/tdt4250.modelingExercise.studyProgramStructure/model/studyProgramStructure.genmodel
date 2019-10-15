@@ -57,9 +57,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//CourseGroup/semester"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//CourseGroup/courses"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/status"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/levelRestriction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/field"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//CourseGroup/fromField"/>
     </genClasses>
     <genClasses ecoreClass="studyProgramStructure.ecore#//University">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//University/programs"/>

@@ -506,36 +506,6 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCourseGroup_LevelRestriction() {
-		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCourseGroup_Field() {
-		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCourseGroup_FromField() {
-		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getUniversity() {
 		return universityEClass;
 	}
@@ -784,9 +754,6 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		createEReference(courseGroupEClass, COURSE_GROUP__SEMESTER);
 		createEReference(courseGroupEClass, COURSE_GROUP__COURSES);
 		createEAttribute(courseGroupEClass, COURSE_GROUP__STATUS);
-		createEAttribute(courseGroupEClass, COURSE_GROUP__LEVEL_RESTRICTION);
-		createEAttribute(courseGroupEClass, COURSE_GROUP__FIELD);
-		createEAttribute(courseGroupEClass, COURSE_GROUP__FROM_FIELD);
 
 		universityEClass = createEClass(UNIVERSITY);
 		createEReference(universityEClass, UNIVERSITY__PROGRAMS);
@@ -853,7 +820,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 1, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_Code(), ecorePackage.getEString(), "code", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProgram_NumOfSemestersForBaseSpecialization(), ecorePackage.getEInt(), "numOfSemestersForBaseSpecialization", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgram_NumOfSemestersForBaseSpecialization(), ecorePackage.getEInt(), "numOfSemestersForBaseSpecialization", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Specializations(), this.getSpecialization(), null, "specializations", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Semesters(), this.getSemester(), this.getSemester_Program(), "semesters", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_NumOfSemesters(), ecorePackage.getEInt(), "numOfSemesters", null, 1, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -879,9 +846,6 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		initEReference(getCourseGroup_Semester(), this.getSemester(), this.getSemester_CourseGroups(), "semester", null, 1, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourseGroup_Courses(), this.getCourse(), null, "courses", null, 0, -1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourseGroup_Status(), this.getCourseStatus(), "status", null, 1, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseGroup_LevelRestriction(), ecorePackage.getEInt(), "levelRestriction", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseGroup_Field(), ecorePackage.getEString(), "field", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseGroup_FromField(), ecorePackage.getEBoolean(), "fromField", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(universityEClass, University.class, "University", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUniversity_Programs(), this.getProgram(), null, "programs", null, 0, -1, University.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -942,7 +906,7 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		  (this,
 		   source,
 		   new String[] {
-			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
 		   });
 		addAnnotation
 		  (programEClass,
@@ -961,12 +925,6 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		   source,
 		   new String[] {
 			   "constraints", "mandatoryCoursesWontExceedMandatoryCredits"
-		   });
-		addAnnotation
-		  (courseGroupEClass,
-		   source,
-		   new String[] {
-			   "constraints", "courseFromLevel"
 		   });
 		addAnnotation
 		  (studyPlanEClass,
@@ -988,20 +946,13 @@ public class StudyProgramStructurePackageImpl extends EPackageImpl implements St
 		  (programEClass,
 		   source,
 		   new String[] {
-			   "baseSpecializationHasEnoughSemesters", "self.semesters -> size() = self.degree.Value"
+			   "baseSpecializationHasEnoughSemesters", "self.semesters -> size() == self.numOfSemestersForBaseSpecialization"
 		   });
 		addAnnotation
 		  (specializationEClass,
 		   source,
 		   new String[] {
 			   "hasEnoughSemesters", "self.semesters -> size() = self.numOfSemesters"
-		   });
-		addAnnotation
-		  (courseGroupEClass,
-		   source,
-		   new String[] {
-			   "courseFromLevel", "if self.levelRestriction != null then self.courses.course.level==self.levelRestriction else endif",
-			   "courseFromField", "if self.field != null and self.fromField != null then if self.fromField then self.courses.course.code.startWith(self.field) else !self.courses.course.code.startWith(self.field) endif"
 		   });
 	}
 

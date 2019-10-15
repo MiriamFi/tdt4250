@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="studyProgramStructure" nsURI="http://tdt4250/modelingExercise/studyProgramStructure"
     nsPrefix="tdt4250.modelingExercise.studyProgramStructure">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Course">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -14,17 +14,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Program">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="baseSpecializationHasEnoughSemesters"/>
+      <details key="constraints" value="programHasEnoughSemesters baseSpecializationHasEnoughSemesters"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
-      <details key="baseSpecializationHasEnoughSemesters" value="self.semesters -> size() = self.numOfSemesters"/>
+      <details key="baseSpecializationHasEnoughSemesters" value="self.semesters -> size() == self.numOfSemestersForBaseSpecialization"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfSemestersForBaseSpecialization"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"
-        eType="#//Specialization" containment="true"/>
+        eType="#//Specialization" containment="true" eOpposite="#//Specialization/program"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
         eType="#//Semester" containment="true" eOpposite="#//Semester/program"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfSemesters" lowerBound="1"
@@ -46,7 +46,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
         eType="#//Semester" containment="true" eOpposite="#//Semester/specialization"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="program" lowerBound="1"
-        eType="#//Program"/>
+        eType="#//Program" eOpposite="#//Program/specializations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -64,13 +64,6 @@
         eOpposite="#//Specialization/semesters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CourseGroup">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="courseFromLevel"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
-      <details key="courseFromLevel" value="if self.levelRestriction != null then self.courses.course.level==self.levelRestriction else endif"/>
-      <details key="courseFromField" value="if self.field != null and self.fromField != null then if self.fromField then self.courses.course.code.startWith(self.field) else !self.courses.course.code.startWith(self.field) endif"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfNeededCourses" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -80,9 +73,6 @@
         eType="#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
         eType="#//CourseStatus"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelRestriction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="University">
     <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"

@@ -2,9 +2,7 @@
 <tdt4250.modelingExercise.studyProgramStructure:University
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:tdt4250.modelingExercise.studyProgramStructure="http://tdt4250/modelingExercise/studyProgramStructure"
-    xsi:schemaLocation="http://tdt4250/modelingExercise/studyProgramStructure studyProgramStructure.ecore">
+    xmlns:tdt4250.modelingExercise.studyProgramStructure="http://tdt4250/modelingExercise/studyProgramStructure">
   <programs
       name="Datateknologi"
       code="MTDT"
@@ -13,20 +11,86 @@
     <specializations
         name="Programvaresystemer"
         numOfSemesters="2"
-        program="//@programs.0"/>
+        furtherSpecializations="//@programs.0/@specializations.1"
+        program="//@programs.0">
+      <semesters
+          semesterNum="5"/>
+      <semesters
+          semesterNum="6"
+          season="spring"/>
+    </specializations>
+    <specializations
+        name="Programvareutvikling"
+        numOfSemesters="4"
+        baseSpecialization="//@programs.0/@specializations.0"
+        program="//@programs.0">
+      <semesters
+          semesterNum="7"/>
+      <semesters
+          semesterNum="8"
+          season="spring"/>
+      <semesters
+          semesterNum="9"/>
+      <semesters
+          semesterNum="10"
+          season="spring"/>
+    </specializations>
+    <specializations
+        name="Databaser og søk"
+        numOfSemesters="6"
+        program="//@programs.0">
+      <semesters
+          semesterNum="7"/>
+      <semesters
+          semesterNum="5"/>
+      <semesters
+          semesterNum="9"/>
+      <semesters
+          semesterNum="8"
+          season="spring"/>
+      <semesters
+          semesterNum="6"
+          season="spring"/>
+      <semesters
+          semesterNum="10"
+          season="spring"/>
+    </specializations>
     <semesters
         semesterNum="2"
+        season="spring"/>
+    <semesters
+        semesterNum="1">
+      <courseGroups
+          name="Mandatory courses"
+          courses="//@courses.0 //@courses.1 //@courses.2"/>
+    </semesters>
+    <semesters
+        semesterNum="3"/>
+    <semesters
+        semesterNum="4"
         season="spring"/>
   </programs>
   <courses name="Objektorientert programmering"
       code="TDT4100"
       credits="7.5"
       level="1"/>
+  <courses name="Avansert programvaredesign"
+      code="TDT4250"
+      credits="7.5"
+      level="4"/>
+  <courses name="Avansert programvareutvikling"
+      code="TDT4242"
+      credits="7.5"
+      level="4"/>
+  <courses name="Kundestyrt prosjekt"
+      code="TDT4290"
+      credits="15.0"
+      level="4"/>
   <students
       name="Siri Nilsen"
       program="//@programs.0">
     <studyPlan
-        semesters="//@programs.0/@semesters.0">
+        semesters="//@programs.0/@semesters.0 //@programs.0/@semesters.1 //@programs.0/@semesters.2 //@programs.0/@semesters.3">
       <courseAllocation
           grade="C"
           course="//@courses.0"/>

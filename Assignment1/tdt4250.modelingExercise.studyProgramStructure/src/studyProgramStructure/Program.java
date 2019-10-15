@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see studyProgramStructure.StudyProgramStructurePackage#getProgram()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='programHasEnoughSemesters baseSpecializationHasEnoughSemesters'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 baseSpecializationHasEnoughSemesters='self.semesters -&gt; size() = self.degree.Value'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 baseSpecializationHasEnoughSemesters='self.semesters -&gt; size() == self.numOfSemestersForBaseSpecialization'"
  * @generated
  */
 public interface Program extends EObject {
@@ -74,16 +74,26 @@ public interface Program extends EObject {
 	void setCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Returns the value of the '<em><b>Num Of Semesters For Base Specialization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Num Of Semesters For Base Specialization</em>' attribute list.
+	 * @return the value of the '<em>Num Of Semesters For Base Specialization</em>' attribute.
+	 * @see #setNumOfSemestersForBaseSpecialization(int)
 	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_NumOfSemestersForBaseSpecialization()
 	 * @model
 	 * @generated
 	 */
-	EList<Integer> getNumOfSemestersForBaseSpecialization();
+	int getNumOfSemestersForBaseSpecialization();
+
+	/**
+	 * Sets the value of the '{@link studyProgramStructure.Program#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Num Of Semesters For Base Specialization</em>' attribute.
+	 * @see #getNumOfSemestersForBaseSpecialization()
+	 * @generated
+	 */
+	void setNumOfSemestersForBaseSpecialization(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Specializations</b></em>' containment reference list.

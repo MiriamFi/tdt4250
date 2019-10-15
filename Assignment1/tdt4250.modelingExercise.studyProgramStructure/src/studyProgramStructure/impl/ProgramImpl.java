@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -85,14 +84,24 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	protected String code = CODE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getNumOfSemestersForBaseSpecialization() <em>Num Of Semesters For Base Specialization</em>}' attribute list.
+	 * The default value of the '{@link #getNumOfSemestersForBaseSpecialization() <em>Num Of Semesters For Base Specialization</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNumOfSemestersForBaseSpecialization()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> numOfSemestersForBaseSpecialization;
+	protected static final int NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getNumOfSemestersForBaseSpecialization() <em>Num Of Semesters For Base Specialization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumOfSemestersForBaseSpecialization()
+	 * @generated
+	 * @ordered
+	 */
+	protected int numOfSemestersForBaseSpecialization = NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSpecializations() <em>Specializations</em>}' containment reference list.
@@ -205,11 +214,21 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public EList<Integer> getNumOfSemestersForBaseSpecialization() {
-		if (numOfSemestersForBaseSpecialization == null) {
-			numOfSemestersForBaseSpecialization = new EDataTypeUniqueEList<Integer>(Integer.class, this, StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION);
-		}
+	public int getNumOfSemestersForBaseSpecialization() {
 		return numOfSemestersForBaseSpecialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNumOfSemestersForBaseSpecialization(int newNumOfSemestersForBaseSpecialization) {
+		int oldNumOfSemestersForBaseSpecialization = numOfSemestersForBaseSpecialization;
+		numOfSemestersForBaseSpecialization = newNumOfSemestersForBaseSpecialization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION, oldNumOfSemestersForBaseSpecialization, numOfSemestersForBaseSpecialization));
 	}
 
 	/**
@@ -332,8 +351,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				setCode((String)newValue);
 				return;
 			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
-				getNumOfSemestersForBaseSpecialization().clear();
-				getNumOfSemestersForBaseSpecialization().addAll((Collection<? extends Integer>)newValue);
+				setNumOfSemestersForBaseSpecialization((Integer)newValue);
 				return;
 			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
 				getSpecializations().clear();
@@ -365,7 +383,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				setCode(CODE_EDEFAULT);
 				return;
 			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
-				getNumOfSemestersForBaseSpecialization().clear();
+				setNumOfSemestersForBaseSpecialization(NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION_EDEFAULT);
 				return;
 			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
 				getSpecializations().clear();
@@ -393,7 +411,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case StudyProgramStructurePackage.PROGRAM__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION:
-				return numOfSemestersForBaseSpecialization != null && !numOfSemestersForBaseSpecialization.isEmpty();
+				return numOfSemestersForBaseSpecialization != NUM_OF_SEMESTERS_FOR_BASE_SPECIALIZATION_EDEFAULT;
 			case StudyProgramStructurePackage.PROGRAM__SPECIALIZATIONS:
 				return specializations != null && !specializations.isEmpty();
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
