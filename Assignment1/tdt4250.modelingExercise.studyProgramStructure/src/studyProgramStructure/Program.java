@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link studyProgramStructure.Program#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}</li>
  *   <li>{@link studyProgramStructure.Program#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link studyProgramStructure.Program#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link studyProgramStructure.Program#getNumOfSemesters <em>Num Of Semesters</em>}</li>
+ *   <li>{@link studyProgramStructure.Program#getNumOfYears <em>Num Of Years</em>}</li>
  * </ul>
  *
  * @see studyProgramStructure.StudyProgramStructurePackage#getProgram()
@@ -124,25 +124,25 @@ public interface Program extends EObject {
 	EList<Semester> getSemesters();
 
 	/**
-	 * Returns the value of the '<em><b>Num Of Semesters</b></em>' attribute.
+	 * Returns the value of the '<em><b>Num Of Years</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Num Of Semesters</em>' attribute.
-	 * @see #setNumOfSemesters(int)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_NumOfSemesters()
+	 * @return the value of the '<em>Num Of Years</em>' attribute.
+	 * @see #setNumOfYears(int)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getProgram_NumOfYears()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getNumOfSemesters();
+	int getNumOfYears();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Program#getNumOfSemesters <em>Num Of Semesters</em>}' attribute.
+	 * Sets the value of the '{@link studyProgramStructure.Program#getNumOfYears <em>Num Of Years</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Num Of Semesters</em>' attribute.
-	 * @see #getNumOfSemesters()
+	 * @param value the new value of the '<em>Num Of Years</em>' attribute.
+	 * @see #getNumOfYears()
 	 * @generated
 	 */
-	void setNumOfSemesters(int value);
+	void setNumOfYears(int value);
 
 } // Program

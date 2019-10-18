@@ -34,7 +34,7 @@ import studyProgramStructure.StudyProgramStructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link studyProgramStructure.impl.SemesterImpl#getSemesterNum <em>Semester Num</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.SemesterImpl#getYear <em>Year</em>}</li>
  *   <li>{@link studyProgramStructure.impl.SemesterImpl#getSeason <em>Season</em>}</li>
  *   <li>{@link studyProgramStructure.impl.SemesterImpl#getCourseGroups <em>Course Groups</em>}</li>
  *   <li>{@link studyProgramStructure.impl.SemesterImpl#getProgram <em>Program</em>}</li>
@@ -45,24 +45,24 @@ import studyProgramStructure.StudyProgramStructurePackage;
  */
 public class SemesterImpl extends MinimalEObjectImpl.Container implements Semester {
 	/**
-	 * The default value of the '{@link #getSemesterNum() <em>Semester Num</em>}' attribute.
+	 * The default value of the '{@link #getYear() <em>Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSemesterNum()
+	 * @see #getYear()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int SEMESTER_NUM_EDEFAULT = 0;
+	protected static final int YEAR_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getSemesterNum() <em>Semester Num</em>}' attribute.
+	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSemesterNum()
+	 * @see #getYear()
 	 * @generated
 	 * @ordered
 	 */
-	protected int semesterNum = SEMESTER_NUM_EDEFAULT;
+	protected int year = YEAR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSeason() <em>Season</em>}' attribute.
@@ -119,8 +119,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
-	public int getSemesterNum() {
-		return semesterNum;
+	public int getYear() {
+		return year;
 	}
 
 	/**
@@ -129,11 +129,11 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
-	public void setSemesterNum(int newSemesterNum) {
-		int oldSemesterNum = semesterNum;
-		semesterNum = newSemesterNum;
+	public void setYear(int newYear) {
+		int oldYear = year;
+		year = newYear;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.SEMESTER__SEMESTER_NUM, oldSemesterNum, semesterNum));
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.SEMESTER__YEAR, oldYear, year));
 	}
 
 	/**
@@ -323,8 +323,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.SEMESTER__SEMESTER_NUM:
-				return getSemesterNum();
+			case StudyProgramStructurePackage.SEMESTER__YEAR:
+				return getYear();
 			case StudyProgramStructurePackage.SEMESTER__SEASON:
 				return getSeason();
 			case StudyProgramStructurePackage.SEMESTER__COURSE_GROUPS:
@@ -346,8 +346,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.SEMESTER__SEMESTER_NUM:
-				setSemesterNum((Integer)newValue);
+			case StudyProgramStructurePackage.SEMESTER__YEAR:
+				setYear((Integer)newValue);
 				return;
 			case StudyProgramStructurePackage.SEMESTER__SEASON:
 				setSeason((Season)newValue);
@@ -374,8 +374,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.SEMESTER__SEMESTER_NUM:
-				setSemesterNum(SEMESTER_NUM_EDEFAULT);
+			case StudyProgramStructurePackage.SEMESTER__YEAR:
+				setYear(YEAR_EDEFAULT);
 				return;
 			case StudyProgramStructurePackage.SEMESTER__SEASON:
 				setSeason(SEASON_EDEFAULT);
@@ -401,8 +401,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StudyProgramStructurePackage.SEMESTER__SEMESTER_NUM:
-				return semesterNum != SEMESTER_NUM_EDEFAULT;
+			case StudyProgramStructurePackage.SEMESTER__YEAR:
+				return year != YEAR_EDEFAULT;
 			case StudyProgramStructurePackage.SEMESTER__SEASON:
 				return season != SEASON_EDEFAULT;
 			case StudyProgramStructurePackage.SEMESTER__COURSE_GROUPS:
@@ -425,8 +425,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (semesterNum: ");
-		result.append(semesterNum);
+		result.append(" (year: ");
+		result.append(year);
 		result.append(", season: ");
 		result.append(season);
 		result.append(')');

@@ -178,13 +178,13 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int PROGRAM__SEMESTERS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Num Of Semesters</b></em>' attribute.
+	 * The feature id for the '<em><b>Num Of Years</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM__NUM_OF_SEMESTERS = 5;
+	int PROGRAM__NUM_OF_YEARS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Program</em>' class.
@@ -297,13 +297,13 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int SEMESTER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Semester Num</b></em>' attribute.
+	 * The feature id for the '<em><b>Year</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMESTER__SEMESTER_NUM = 0;
+	int SEMESTER__YEAR = 0;
 
 	/**
 	 * The feature id for the '<em><b>Season</b></em>' attribute.
@@ -461,13 +461,22 @@ public interface StudyProgramStructurePackage extends EPackage {
 	int UNIVERSITY__STUDENTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>University</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIVERSITY_FEATURE_COUNT = 3;
+	int UNIVERSITY_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>University</em>' class.
@@ -794,15 +803,15 @@ public interface StudyProgramStructurePackage extends EPackage {
 	EReference getProgram_Semesters();
 
 	/**
-	 * Returns the meta object for the attribute '{@link studyProgramStructure.Program#getNumOfSemesters <em>Num Of Semesters</em>}'.
+	 * Returns the meta object for the attribute '{@link studyProgramStructure.Program#getNumOfYears <em>Num Of Years</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Num Of Semesters</em>'.
-	 * @see studyProgramStructure.Program#getNumOfSemesters()
+	 * @return the meta object for the attribute '<em>Num Of Years</em>'.
+	 * @see studyProgramStructure.Program#getNumOfYears()
 	 * @see #getProgram()
 	 * @generated
 	 */
-	EAttribute getProgram_NumOfSemesters();
+	EAttribute getProgram_NumOfYears();
 
 	/**
 	 * Returns the meta object for class '{@link studyProgramStructure.Specialization <em>Specialization</em>}'.
@@ -891,15 +900,15 @@ public interface StudyProgramStructurePackage extends EPackage {
 	EClass getSemester();
 
 	/**
-	 * Returns the meta object for the attribute '{@link studyProgramStructure.Semester#getSemesterNum <em>Semester Num</em>}'.
+	 * Returns the meta object for the attribute '{@link studyProgramStructure.Semester#getYear <em>Year</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Semester Num</em>'.
-	 * @see studyProgramStructure.Semester#getSemesterNum()
+	 * @return the meta object for the attribute '<em>Year</em>'.
+	 * @see studyProgramStructure.Semester#getYear()
 	 * @see #getSemester()
 	 * @generated
 	 */
-	EAttribute getSemester_SemesterNum();
+	EAttribute getSemester_Year();
 
 	/**
 	 * Returns the meta object for the attribute '{@link studyProgramStructure.Semester#getSeason <em>Season</em>}'.
@@ -1041,6 +1050,17 @@ public interface StudyProgramStructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUniversity_Students();
+
+	/**
+	 * Returns the meta object for the attribute '{@link studyProgramStructure.University#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see studyProgramStructure.University#getName()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EAttribute getUniversity_Name();
 
 	/**
 	 * Returns the meta object for class '{@link studyProgramStructure.Student <em>Student</em>}'.
@@ -1317,12 +1337,12 @@ public interface StudyProgramStructurePackage extends EPackage {
 		EReference PROGRAM__SEMESTERS = eINSTANCE.getProgram_Semesters();
 
 		/**
-		 * The meta object literal for the '<em><b>Num Of Semesters</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Num Of Years</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROGRAM__NUM_OF_SEMESTERS = eINSTANCE.getProgram_NumOfSemesters();
+		EAttribute PROGRAM__NUM_OF_YEARS = eINSTANCE.getProgram_NumOfYears();
 
 		/**
 		 * The meta object literal for the '{@link studyProgramStructure.impl.SpecializationImpl <em>Specialization</em>}' class.
@@ -1393,12 +1413,12 @@ public interface StudyProgramStructurePackage extends EPackage {
 		EClass SEMESTER = eINSTANCE.getSemester();
 
 		/**
-		 * The meta object literal for the '<em><b>Semester Num</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SEMESTER__SEMESTER_NUM = eINSTANCE.getSemester_SemesterNum();
+		EAttribute SEMESTER__YEAR = eINSTANCE.getSemester_Year();
 
 		/**
 		 * The meta object literal for the '<em><b>Season</b></em>' attribute feature.
@@ -1507,6 +1527,14 @@ public interface StudyProgramStructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference UNIVERSITY__STUDENTS = eINSTANCE.getUniversity_Students();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIVERSITY__NAME = eINSTANCE.getUniversity_Name();
 
 		/**
 		 * The meta object literal for the '{@link studyProgramStructure.impl.StudentImpl <em>Student</em>}' class.

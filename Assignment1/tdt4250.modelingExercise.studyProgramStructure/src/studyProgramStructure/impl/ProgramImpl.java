@@ -36,7 +36,7 @@ import studyProgramStructure.StudyProgramStructurePackage;
  *   <li>{@link studyProgramStructure.impl.ProgramImpl#getNumOfSemestersForBaseSpecialization <em>Num Of Semesters For Base Specialization</em>}</li>
  *   <li>{@link studyProgramStructure.impl.ProgramImpl#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link studyProgramStructure.impl.ProgramImpl#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link studyProgramStructure.impl.ProgramImpl#getNumOfSemesters <em>Num Of Semesters</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.ProgramImpl#getNumOfYears <em>Num Of Years</em>}</li>
  * </ul>
  *
  * @generated
@@ -123,24 +123,24 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	protected EList<Semester> semesters;
 
 	/**
-	 * The default value of the '{@link #getNumOfSemesters() <em>Num Of Semesters</em>}' attribute.
+	 * The default value of the '{@link #getNumOfYears() <em>Num Of Years</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumOfSemesters()
+	 * @see #getNumOfYears()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUM_OF_SEMESTERS_EDEFAULT = 0;
+	protected static final int NUM_OF_YEARS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNumOfSemesters() <em>Num Of Semesters</em>}' attribute.
+	 * The cached value of the '{@link #getNumOfYears() <em>Num Of Years</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumOfSemesters()
+	 * @see #getNumOfYears()
 	 * @generated
 	 * @ordered
 	 */
-	protected int numOfSemesters = NUM_OF_SEMESTERS_EDEFAULT;
+	protected int numOfYears = NUM_OF_YEARS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,8 +262,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public int getNumOfSemesters() {
-		return numOfSemesters;
+	public int getNumOfYears() {
+		return numOfYears;
 	}
 
 	/**
@@ -272,11 +272,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public void setNumOfSemesters(int newNumOfSemesters) {
-		int oldNumOfSemesters = numOfSemesters;
-		numOfSemesters = newNumOfSemesters;
+	public void setNumOfYears(int newNumOfYears) {
+		int oldNumOfYears = numOfYears;
+		numOfYears = newNumOfYears;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS, oldNumOfSemesters, numOfSemesters));
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.PROGRAM__NUM_OF_YEARS, oldNumOfYears, numOfYears));
 	}
 
 	/**
@@ -330,8 +330,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return getSpecializations();
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
 				return getSemesters();
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				return getNumOfSemesters();
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_YEARS:
+				return getNumOfYears();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -362,8 +362,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				getSemesters().clear();
 				getSemesters().addAll((Collection<? extends Semester>)newValue);
 				return;
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				setNumOfSemesters((Integer)newValue);
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_YEARS:
+				setNumOfYears((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -392,8 +392,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
 				getSemesters().clear();
 				return;
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				setNumOfSemesters(NUM_OF_SEMESTERS_EDEFAULT);
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_YEARS:
+				setNumOfYears(NUM_OF_YEARS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -417,8 +417,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return specializations != null && !specializations.isEmpty();
 			case StudyProgramStructurePackage.PROGRAM__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
-			case StudyProgramStructurePackage.PROGRAM__NUM_OF_SEMESTERS:
-				return numOfSemesters != NUM_OF_SEMESTERS_EDEFAULT;
+			case StudyProgramStructurePackage.PROGRAM__NUM_OF_YEARS:
+				return numOfYears != NUM_OF_YEARS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -439,8 +439,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 		result.append(code);
 		result.append(", numOfSemestersForBaseSpecialization: ");
 		result.append(numOfSemestersForBaseSpecialization);
-		result.append(", numOfSemesters: ");
-		result.append(numOfSemesters);
+		result.append(", numOfYears: ");
+		result.append(numOfYears);
 		result.append(')');
 		return result.toString();
 	}

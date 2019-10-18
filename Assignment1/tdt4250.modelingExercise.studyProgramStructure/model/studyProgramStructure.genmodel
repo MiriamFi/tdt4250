@@ -34,7 +34,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/numOfSemestersForBaseSpecialization"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Program/specializations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Program/semesters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/numOfSemesters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Program/numOfYears"/>
     </genClasses>
     <genClasses ecoreClass="studyProgramStructure.ecore#//Specialization">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Specialization/name"/>
@@ -45,7 +45,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Specialization/program"/>
     </genClasses>
     <genClasses ecoreClass="studyProgramStructure.ecore#//Semester">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Semester/semesterNum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Semester/year"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Semester/season"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Semester/courseGroups"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//Semester/program"/>
@@ -61,6 +61,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//University/programs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//University/courses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyProgramStructure.ecore#//University/students"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//University/name"/>
     </genClasses>
     <genClasses ecoreClass="studyProgramStructure.ecore#//Student">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyProgramStructure.ecore#//Student/name"/>

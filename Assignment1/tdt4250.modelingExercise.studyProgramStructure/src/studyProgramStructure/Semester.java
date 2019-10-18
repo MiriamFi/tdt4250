@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link studyProgramStructure.Semester#getSemesterNum <em>Semester Num</em>}</li>
+ *   <li>{@link studyProgramStructure.Semester#getYear <em>Year</em>}</li>
  *   <li>{@link studyProgramStructure.Semester#getSeason <em>Season</em>}</li>
  *   <li>{@link studyProgramStructure.Semester#getCourseGroups <em>Course Groups</em>}</li>
  *   <li>{@link studyProgramStructure.Semester#getProgram <em>Program</em>}</li>
@@ -28,26 +28,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Semester extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Semester Num</b></em>' attribute.
+	 * Returns the value of the '<em><b>Year</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Semester Num</em>' attribute.
-	 * @see #setSemesterNum(int)
-	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_SemesterNum()
+	 * @return the value of the '<em>Year</em>' attribute.
+	 * @see #setYear(int)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getSemester_Year()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getSemesterNum();
+	int getYear();
 
 	/**
-	 * Sets the value of the '{@link studyProgramStructure.Semester#getSemesterNum <em>Semester Num</em>}' attribute.
+	 * Sets the value of the '{@link studyProgramStructure.Semester#getYear <em>Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Semester Num</em>' attribute.
-	 * @see #getSemesterNum()
+	 * @param value the new value of the '<em>Year</em>' attribute.
+	 * @see #getYear()
 	 * @generated
 	 */
-	void setSemesterNum(int value);
+	void setYear(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Season</b></em>' attribute.

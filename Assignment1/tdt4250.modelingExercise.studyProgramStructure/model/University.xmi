@@ -2,28 +2,32 @@
 <tdt4250.modelingExercise.studyProgramStructure:University
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:tdt4250.modelingExercise.studyProgramStructure="http://tdt4250/modelingExercise/studyProgramStructure">
+    xmlns:tdt4250.modelingExercise.studyProgramStructure="http://tdt4250/modelingExercise/studyProgramStructure"
+    name="NTNU">
   <programs
       name="Datateknologi"
       code="MTDT"
       numOfSemestersForBaseSpecialization="4"
-      numOfSemesters="10">
+      numOfYears="5">
     <specializations
         name="Programvaresystemer"
         numOfSemesters="2"
         furtherSpecializations="//@programs.0/@specializations.1">
       <semesters
-          semesterNum="5">
+          year="3">
         <courseGroups
+            name="Mandatory courses"
             courses="//@courses.18 //@courses.19 //@courses.20"/>
         <courseGroups
+            name="Elective courses"
             courses="//@courses.21"
             status="elective"/>
       </semesters>
       <semesters
-          semesterNum="6"
+          year="3"
           season="spring">
         <courseGroups
+            name="Mandatory courses"
             courses="//@courses.22 //@courses.23 //@courses.24 //@courses.25"/>
       </semesters>
     </specializations>
@@ -32,21 +36,88 @@
         numOfSemesters="4"
         baseSpecialization="//@programs.0/@specializations.0">
       <semesters
-          semesterNum="7">
+          year="4">
         <courseGroups
             name="Mandatory courses"
             courses="//@courses.1 //@courses.3"/>
         <courseGroups
             name="K-emner"
-            courses="//@courses.26 //@courses.27"
+            courses="//@courses.26 //@courses.27 //@courses.38"
             status="elective"/>
       </semesters>
       <semesters
-          semesterNum="8"
+          year="4"
           season="spring">
         <courseGroups
             name="Mandatory courses"
             courses="//@courses.2"/>
+        <courseGroups
+            name="Elective courses"
+            courses="//@courses.28 //@courses.43"
+            status="elective"/>
+        <courseGroups
+            name="Ingeniøremne"
+            courses="//@courses.29 //@courses.39 //@courses.40"
+            status="elective"/>
+        <courseGroups
+            name="EIT"
+            courses="//@courses.30 //@courses.41 //@courses.42"
+            status="elective"/>
+      </semesters>
+      <semesters
+          year="5">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.31 //@courses.32"/>
+        <courseGroups
+            name="K-emner"
+            courses="//@courses.26 //@courses.27 //@courses.38"
+            status="elective"/>
+      </semesters>
+      <semesters
+          year="5"
+          season="spring">
+        <courseGroups
+            name="Masteroppgave"
+            courses="//@courses.33"/>
+      </semesters>
+    </specializations>
+    <specializations
+        name="Databaser og søk"
+        numOfSemesters="6">
+      <semesters
+          year="3">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.18 //@courses.20 //@courses.34"/>
+        <courseGroups
+            name="Elective courses"
+            courses="//@courses.21"
+            status="elective"/>
+      </semesters>
+      <semesters
+          year="3"
+          season="spring">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.22 //@courses.24 //@courses.25 //@courses.35"/>
+      </semesters>
+      <semesters
+          year="4">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.36 //@courses.3"/>
+        <courseGroups
+            name="K-emne"
+            courses="//@courses.26 //@courses.27 //@courses.38"
+            status="elective"/>
+      </semesters>
+      <semesters
+          year="4"
+          season="spring">
+        <courseGroups
+            name="Mandatory courses"
+            courses="//@courses.37"/>
         <courseGroups
             name="Elective courses"
             courses="//@courses.28"
@@ -61,63 +132,47 @@
             status="elective"/>
       </semesters>
       <semesters
-          semesterNum="9">
+          year="5">
         <courseGroups
             name="Mandatory courses"
             courses="//@courses.31 //@courses.32"/>
         <courseGroups
-            name="K-emner"
-            courses="//@courses.26 //@courses.27"
+            name="K-emne"
+            courses="//@courses.26 //@courses.27 //@courses.38"
             status="elective"/>
       </semesters>
       <semesters
-          semesterNum="10"
+          year="5"
           season="spring">
         <courseGroups
-            name="Masteroppgave"
+            name="Mandatory courses"
             courses="//@courses.33"/>
       </semesters>
     </specializations>
-    <specializations
-        name="Databaser og søk"
-        numOfSemesters="6">
-      <semesters
-          semesterNum="5"/>
-      <semesters
-          semesterNum="6"
-          season="spring"/>
-      <semesters
-          semesterNum="7"/>
-      <semesters
-          semesterNum="8"
-          season="spring"/>
-      <semesters
-          semesterNum="9"/>
-      <semesters
-          semesterNum="10"
-          season="spring"/>
-    </specializations>
     <semesters
-        semesterNum="1">
+        year="1">
       <courseGroups
+          name="Mandatory courses"
           courses="//@courses.0 //@courses.4 //@courses.5 //@courses.6"/>
     </semesters>
     <semesters
-        semesterNum="2"
+        year="1"
         season="spring">
       <courseGroups
           name="Mandatory courses"
           courses="//@courses.0 //@courses.7 //@courses.8 //@courses.9"/>
     </semesters>
     <semesters
-        semesterNum="3">
+        year="2">
       <courseGroups
+          name="Mandatory courses"
           courses="//@courses.10 //@courses.11 //@courses.12 //@courses.13"/>
     </semesters>
     <semesters
-        semesterNum="4"
+        year="2"
         season="spring">
       <courseGroups
+          name="Mandatory courses"
           courses="//@courses.14 //@courses.15 //@courses.16 //@courses.17"/>
     </semesters>
   </programs>
@@ -257,6 +312,46 @@
       code="TDT4900"
       credits="30.0"
       level="5"/>
+  <courses name="Informasjonsgjenfinning"
+      code="TDT4117"
+      credits="7.5"
+      level="3"/>
+  <courses name="Datavarehus og datagruvedrift"
+      code="TDT4300"
+      credits="7.5"
+      level="3"/>
+  <courses name="Store, distribuerte datamengder"
+      code="TDT4225"
+      credits="7.5"
+      level="4"/>
+  <courses name="Big Data-arkitektur"
+      code="TDT4305"
+      credits="7.5"
+      level="4"/>
+  <courses name="Strategi og endring i teknologibedrifter"
+      code="BSOL4610"
+      credits="7.5"
+      level="4"/>
+  <courses name="Elektriske motordrifter"
+      code="TET4120"
+      credits="7.5"
+      level="4"/>
+  <courses name="Signalbehandling i ultralyd-avbildning"
+      code="MEDT4165"
+      credits="7.5"
+      level="4"/>
+  <courses name=" EIT - forbruk - design - livsstil"
+      code="EIT3006"
+      credits="7.5"
+      level="4"/>
+  <courses name="EIT - Fortalt digitalt"
+      code="EIT3014"
+      credits="7.5"
+      level="4"/>
+  <courses name="Anbefalingssystemer"
+      code="TDT4215"
+      credits="7.5"
+      level="4"/>
   <students
       name="Siri Nilsen"
       program="//@programs.0">

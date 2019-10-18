@@ -1,0 +1,145 @@
+[comment encoding = UTF-8 /]
+[module generate( 'tdt4250.modelingExercise.studyProgramStructure/model/studyProgramStructure.ecore', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+
+
+[template public generateHtml(university : University)]
+[comment @main/]
+[file (university.name.concat('.html'), false, 'UTF-8')]
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>[university.name/] Study Plan</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+margin: 10px 20% 50px 20%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+width: 15%;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+h4 {
+  font-family: arial, sans-serif;
+margin-left:20%;
+font-size: 1.1em;
+}
+
+h1 {
+  font-family: arial, sans-serif;
+width: 100%;
+text-align:center;
+font-size: 3em;
+}
+
+h2 {
+  font-family: arial, sans-serif;
+width: 100%;
+text-align:center;
+font-size: 2em;
+}
+
+h3 {
+  font-family: arial, sans-serif;
+width: 100%;
+text-align:center;
+font-size: 1.4em;
+}
+
+hr {
+width: 60%;
+margin-left: 20%;
+margin-bottom: 60px;
+}
+</style>
+</head>
+<body>
+
+<h1>Study plan</h1>
+
+[for (program : Program | university.programs)]
+	[generateProgram(program)/]
+	
+[/for]
+</body>
+</html>
+[/file]
+[/template]
+
+[template public generateProgram(program : Program)]
+<div>
+<h2> [program.name /] </h2>
+[for (semester : Semester | program.semesters) ]
+[generateSemester(semester) /]
+[/for]
+<hr>
+[for (specialization : Specialization | program.specializations) ]
+[if (specialization.baseSpecialization = null)]
+[generateSpecialization(specialization) /]
+[/if]
+[/for]
+</div>
+[/template]
+
+
+[template public generateSpecialization(specialization : Specialization)]
+<div>
+<h3>[specialization.name /]</h3>
+[for (semester : Semester | specialization.semesters) ]
+[ generateSemester(semester) /]
+[/for]
+<hr>
+[if (specialization.furtherSpecializations -> size() > 0)]
+[for (furtherSpecialization : Specialization | specialization.furtherSpecializations) ]
+[generateSpecialization(furtherSpecialization) /]
+[/for]
+[/if]
+</div>
+[/template]
+
+[template public generateSemester(semester : Semester)]
+[for (courseGroup : CourseGroup | semester.courseGroups) ]
+<div>
+<h4>[semester.year/]. year  [semester.season /]  -   [courseGroup.name/]</h4>
+[ generateCourseGroup(courseGroup) /]
+</div>
+
+[/for]
+
+[/template]
+
+[template public generateCourseGroup(courseGroup : CourseGroup)]
+
+<table>
+<tr>
+<th>Code </th> 
+<th>Course </th>
+<th>Credits </th>
+<th>status</th>
+</tr>
+[for (course : Course | courseGroup.courses) ]
+[generateCourse(course, courseGroup.status.toString())/]
+[/for]
+</table>
+[/template]
+
+[template public generateCourse(course: Course, status: String)]
+
+<tr>
+<td>[course.code /]</td>
+<td>[course.name /]</td>
+<td>[course.credits /]</td>
+<td>[status /]</td>
+</tr>
+[/template]
+

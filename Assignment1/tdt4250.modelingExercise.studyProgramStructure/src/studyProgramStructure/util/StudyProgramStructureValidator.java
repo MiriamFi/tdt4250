@@ -167,7 +167,7 @@ public class StudyProgramStructureValidator extends EObjectValidator {
 				}
 			}
 			for (int i = 0; i < semesterSums.size(); i++) {
-				if(semesterSums.get(i) != program.getNumOfSemesters()) {
+				if(semesterSums.get(i) != program.getNumOfYears()*2) {
 					numOfSemestersIsValid = false;
 				}
 			}

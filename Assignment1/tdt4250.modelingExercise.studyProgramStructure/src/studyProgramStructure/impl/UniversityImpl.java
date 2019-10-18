@@ -4,6 +4,7 @@ package studyProgramStructure.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -33,6 +35,7 @@ import studyProgramStructure.University;
  *   <li>{@link studyProgramStructure.impl.UniversityImpl#getPrograms <em>Programs</em>}</li>
  *   <li>{@link studyProgramStructure.impl.UniversityImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.impl.UniversityImpl#getStudents <em>Students</em>}</li>
+ *   <li>{@link studyProgramStructure.impl.UniversityImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +70,26 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 	 * @ordered
 	 */
 	protected EList<Student> students;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +155,29 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgramStructurePackage.UNIVERSITY__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StudyProgramStructurePackage.UNIVERSITY__PROGRAMS:
@@ -158,6 +204,8 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 				return getCourses();
 			case StudyProgramStructurePackage.UNIVERSITY__STUDENTS:
 				return getStudents();
+			case StudyProgramStructurePackage.UNIVERSITY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,6 +231,9 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 				getStudents().clear();
 				getStudents().addAll((Collection<? extends Student>)newValue);
 				return;
+			case StudyProgramStructurePackage.UNIVERSITY__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -204,6 +255,9 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 			case StudyProgramStructurePackage.UNIVERSITY__STUDENTS:
 				getStudents().clear();
 				return;
+			case StudyProgramStructurePackage.UNIVERSITY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -222,8 +276,26 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 				return courses != null && !courses.isEmpty();
 			case StudyProgramStructurePackage.UNIVERSITY__STUDENTS:
 				return students != null && !students.isEmpty();
+			case StudyProgramStructurePackage.UNIVERSITY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UniversityImpl

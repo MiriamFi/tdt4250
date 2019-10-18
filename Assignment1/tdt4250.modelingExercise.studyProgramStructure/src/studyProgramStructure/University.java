@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link studyProgramStructure.University#getPrograms <em>Programs</em>}</li>
  *   <li>{@link studyProgramStructure.University#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyProgramStructure.University#getStudents <em>Students</em>}</li>
+ *   <li>{@link studyProgramStructure.University#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see studyProgramStructure.StudyProgramStructurePackage#getUniversity()
@@ -60,5 +61,27 @@ public interface University extends EObject {
 	 * @generated
 	 */
 	EList<Student> getStudents();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see studyProgramStructure.StudyProgramStructurePackage#getUniversity_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link studyProgramStructure.University#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // University
