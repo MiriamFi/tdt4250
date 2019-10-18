@@ -18,4 +18,5 @@ In the Run Configuration editor there should be the following settings:
 There should now have been generated one or several html files from the model instance from Assignment 1, and they can be found in the `dump` folder.
 
 
-
+#### Necessary plugins
+In order to run the project, the Acceleo Query SDK as well as EMF plugins need to be installed in Ecplise.
